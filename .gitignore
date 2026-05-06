@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# Data - do not commit large/private project data
+data/raw/
+data/interim/
+data/processed/
+
+
+# ArcGIS locks/temp files
+*.lock
+*.sr.lock
+*.aprx.lock
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
