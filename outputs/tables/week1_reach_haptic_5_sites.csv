@@ -1,0 +1,6 @@
+park_num,site_name,municipality,num_access_points,bus_stops_05min,bus_stops_10min,bus_stops_20min,bus_stops_30min,perimeter,shoreline_length_m,haptic_length_to_perimeter
+91,Ambleside Park 1,West Vancouver,25.0,10,27,67,102,2836.8679389722906,1160.156005859375,0.4089566469192505
+37,Cates Park,North Vancouver - District,17.0,4,9,20,35,3282.033287565209,1546.1815185546875,0.47110477089881897
+44,"Pacific Spirit Regional Park (Acadia, Tower, and Wreck Beaches combined)",Metro Vancouver,6.0,3,8,33,57,10097.300354861603,5010.6474609375,0.4962363541126251
+13,Spanish Banks Beach Park and Extension,Vancouver,19.0,3,5,21,45,3721.8447543364437,1762.63134765625,0.47359079122543335
+145,"Stanley Park (Seawall, Second Beach, Third Beach)",Vancouver,62.0,2,9,35,77,15240.917095971052,7638.5107421875,0.5011844635009766

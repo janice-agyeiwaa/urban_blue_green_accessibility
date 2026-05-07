@@ -4,6 +4,7 @@ __pycache__/
 .venv/
 venv/
 .env
+.vscode/
 
 # Data - do not commit large/private project data
 data/raw/
