@@ -5,10 +5,12 @@ import osmnx as ox
 from shapely.geometry import Point
 from sklearn.cluster import KMeans
 import numpy as np
+import rasterio
 
 # -------------------------
 # Paths
 # -------------------------
+lcc_water_raster = Path(r"data\raw\LCC2020_wateronot.tif")
 land_buffer_path = r"data\raw\Park_Extraction_Project.gdb"
 land_buffer_layer = "allparks_land_buffer"
 
@@ -86,6 +88,34 @@ def points_along_line(line, spacing):
 
     return points
 
+
+def filter_points_not_on_water(points_gdf, lcc_raster_path):
+    """
+    Keep only candidate observer points that fall on non-water cells.
+
+    LCC2020_wateronot:
+    0 = not water
+    1 = water
+    """
+    if len(points_gdf) == 0:
+        return points_gdf
+
+    with rasterio.open(lcc_raster_path) as src:
+        # Reproject points to match raster CRS
+        raster_crs = src.crs
+        points_for_sample = points_gdf.to_crs(raster_crs)
+
+        coords = [(geom.x, geom.y) for geom in points_for_sample.geometry]
+        sampled_values = [val[0] for val in src.sample(coords)]
+
+    points_gdf = points_gdf.copy()
+    points_gdf["lcc_water_value"] = sampled_values
+
+    # Keep only non-water cells
+    # 0 = not water, 1 = water
+    filtered = points_gdf[points_gdf["lcc_water_value"] == 0].copy()
+
+    return filtered
 # -------------------------
 # Containers
 # -------------------------
@@ -184,6 +214,20 @@ for _, park in pilot_land.iterrows():
 
     if len(candidates) > 0:
         all_candidates.append(candidates)
+
+
+    raw_candidate_count = len(candidates)
+
+    candidates = filter_points_not_on_water(
+        candidates,
+        lcc_water_raster
+    )
+
+    non_water_candidate_count = len(candidates)
+
+    print("  Raw candidate points:", raw_candidate_count)
+    print("  Non-water candidate points:", non_water_candidate_count)
+
 
     # -------------------------
     # Select final observers
@@ -287,7 +331,10 @@ for _, park in pilot_land.iterrows():
         "candidate_count": len(candidates),
         "final_observer_count": min(len(selected), target_observers_per_park),
         "fallback_used": fallback_used,
+        "raw_candidate_count": raw_candidate_count,
+        "non_water_candidate_count": non_water_candidate_count,
         "notes": notes
+      
     })
 
     print("  Final observers:", min(len(selected), target_observers_per_park))

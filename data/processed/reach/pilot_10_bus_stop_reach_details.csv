@@ -1,0 +1,471 @@
+park_num,PARK_NAME,stop_id,stop_name,network_distance_m,within_05min,within_10min,within_20min,within_30min
+35,Deep Cove’s Parkside Beach,10130,Northbound Banbury Rd @ Gallant Ave,399.97,True,True,True,True
+35,Deep Cove’s Parkside Beach,11572,Eastbound Bedwell Bay Rd @ Midden Rd,1242.79,False,False,True,True
+35,Deep Cove’s Parkside Beach,4081,Eastbound Mt Seymour Parkway @ 3800 Block,2385.36,False,False,False,True
+35,Deep Cove’s Parkside Beach,4082,Eastbound Mt Seymour Parkway @ 4000 Block,2055.06,False,False,False,True
+35,Deep Cove’s Parkside Beach,4083,Southbound Fairway Dr @ Mt Seymour Parkway,1789.22,False,False,False,True
+35,Deep Cove’s Parkside Beach,4084,Southbound Fairway Dr @ Huntingdon Cres,2020.96,False,False,False,True
+35,Deep Cove’s Parkside Beach,4085,Southbound Fairway Dr @ Caddy Rd,2277.46,False,False,False,True
+35,Deep Cove’s Parkside Beach,4088,Northbound N Dollarton Hwy @ Caddy Rd,2030.94,False,False,False,True
+35,Deep Cove’s Parkside Beach,4089,Northbound N Dollarton Hwy @ Mt Seymour Parkway,1950.56,False,False,False,True
+35,Deep Cove’s Parkside Beach,4090,Northbound Deep Cove Rd @ Strathcona Rd,1342.2,False,False,True,True
+35,Deep Cove’s Parkside Beach,4091,Northbound Deep Cove Rd @ 1600 Block,1009.8,False,False,True,True
+35,Deep Cove’s Parkside Beach,4092,Northbound Deep Cove Rd @ Cliffmont Rd,771.91,False,True,True,True
+35,Deep Cove’s Parkside Beach,4093,Northbound Deep Cove Rd @ Badger Rd,614.48,False,True,True,True
+35,Deep Cove’s Parkside Beach,4094,Southbound Panorama Dr @ Naughton Ave,454.58,False,True,True,True
+35,Deep Cove’s Parkside Beach,4096,Southbound Deep Cove Rd @ Badger Rd,735.71,False,True,True,True
+35,Deep Cove’s Parkside Beach,4097,Southbound Deep Cove Rd @ Strathcona Rd,1271.68,False,False,True,True
+35,Deep Cove’s Parkside Beach,4098,Southbound N Dollarton Hwy @ Mt Seymour Parkway,1950.56,False,False,False,True
+35,Deep Cove’s Parkside Beach,4099,Southbound N Dollarton Hwy @ Caddy Rd,2030.94,False,False,False,True
+35,Deep Cove’s Parkside Beach,4102,Northbound Fairway Dr @ Caddy Rd,2267.82,False,False,False,True
+35,Deep Cove’s Parkside Beach,4103,Northbound Fairway Dr @ Huntingdon Cres,2020.96,False,False,False,True
+35,Deep Cove’s Parkside Beach,4104,Westbound Mt Seymour Parkway @ Beaufort Rd,1827.36,False,False,False,True
+35,Deep Cove’s Parkside Beach,4105,Westbound Mt Seymour Parkway @ 3900 Block,2055.42,False,False,False,True
+35,Deep Cove’s Parkside Beach,4171,Northbound Inlet Cres @ Indian River Dr,2350.15,False,False,False,True
+35,Deep Cove’s Parkside Beach,9037,Southbound Deep Cove Rd @ 1400 Block,1287.16,False,False,True,True
+35,Deep Cove’s Parkside Beach,9157,Southbound Belcarra Bay Rd @ Salish Rd,1007.14,False,False,True,True
+35,Deep Cove’s Parkside Beach,9433,Southbound Belcarra Bay Rd @ Whiskey Cove Lane,1007.14,False,False,True,True
+35,Deep Cove’s Parkside Beach,9483,Westbound Bedwell Bay Rd @ Midden Rd,1242.79,False,False,True,True
+42,Emmeline Mohun Park (riverfro,10377,Westbound Hammond Rd @ 20200 Block,2177.52,False,False,False,True
+42,Emmeline Mohun Park (riverfro,11025,Eastbound Princess St @ Ditton St,661.48,False,True,True,True
+42,Emmeline Mohun Park (riverfro,11431,Southbound Bonson Rd @ Aljumaili Ave,2238.78,False,False,False,True
+42,Emmeline Mohun Park (riverfro,11432,Southbound Bonson Rd @ Bruce Dr,2211.92,False,False,False,True
+42,Emmeline Mohun Park (riverfro,11987,Northbound Bonson Rd @ 114B Ave,2310.86,False,False,False,True
+42,Emmeline Mohun Park (riverfro,7746,Southbound 203 St @ Stanton Ave,2231.53,False,False,False,True
+42,Emmeline Mohun Park (riverfro,7747,Southbound 203 St @ Thorne Ave,2021.95,False,False,False,True
+42,Emmeline Mohun Park (riverfro,7748,Eastbound Maple Cres @ 203 St,1806.31,False,False,False,True
+42,Emmeline Mohun Park (riverfro,7749,Eastbound Maple Cres @ Westfield Ave,1475.27,False,False,True,True
+42,Emmeline Mohun Park (riverfro,7750,Southbound Lorne Ave @ Eltham St,1066.25,False,False,True,True
+42,Emmeline Mohun Park (riverfro,7753,Northbound Ditton St @ Maple Cres,1257.81,False,False,True,True
+42,Emmeline Mohun Park (riverfro,7754,Eastbound Maple Cres @ Dartford St,1413.21,False,False,True,True
+42,Emmeline Mohun Park (riverfro,7755,Northbound 207 St @ Lorne Ave,1679.5,False,False,False,True
+42,Emmeline Mohun Park (riverfro,7756,Northbound 207 St @ Golf Lane,2259.93,False,False,False,True
+42,Emmeline Mohun Park (riverfro,7757,Northbound 207 St @ 117 Ave,2216.86,False,False,False,True
+42,Emmeline Mohun Park (riverfro,7789,Southbound 207 St @ River Rd West,2028.36,False,False,False,True
+42,Emmeline Mohun Park (riverfro,7791,Southbound 207 St @ Lorne Ave,1628.67,False,False,False,True
+42,Emmeline Mohun Park (riverfro,7792,Westbound Maple Cres @ Dartford St,1392.46,False,False,True,True
+42,Emmeline Mohun Park (riverfro,7793,Westbound Maple Cres @ 206 St,1260.81,False,False,True,True
+42,Emmeline Mohun Park (riverfro,7794,Southbound Ditton St @ Maple Cres,1257.81,False,False,True,True
+42,Emmeline Mohun Park (riverfro,7795,Southbound Ditton St @ Princess St,661.48,False,True,True,True
+42,Emmeline Mohun Park (riverfro,7796,Westbound Princess St @ Hampton St,753.77,False,True,True,True
+42,Emmeline Mohun Park (riverfro,7797,Northbound Lorne Ave @ Princess St,846.55,False,False,True,True
+42,Emmeline Mohun Park (riverfro,7798,Northbound Lorne Ave @ Eltham St,1496.33,False,False,True,True
+42,Emmeline Mohun Park (riverfro,7799,Westbound Maple Cres @ Westfield Ave,1475.27,False,False,True,True
+42,Emmeline Mohun Park (riverfro,7800,Westbound Maple Cres @ 115 Ave,1643.46,False,False,False,True
+42,Emmeline Mohun Park (riverfro,7801,Northbound 203 St @ Hammond Rd,1858.41,False,False,False,True
+42,Emmeline Mohun Park (riverfro,7802,Northbound 203 St @ Thorne Ave,2131.79,False,False,False,True
+42,Emmeline Mohun Park (riverfro,7803,Northbound 203 St @ 118 Ave,2371.75,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,10035,Westbound River Rd @ 23900 Block,2206.86,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,10060,Eastbound River Rd @ 236 St,1628.63,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,10210,Northbound 240 St @ 112 Ave,732.96,False,True,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,10211,Northbound 240 St @ 11500 Block,1336.37,False,False,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,10212,Southbound 240 St @ Kanaka Way,644.94,False,True,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,10217,Southbound 240 St @ 11500 Block,1336.37,False,False,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,10218,Northbound 240 St @ 118 Ave,1884.44,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,10608,Northbound 240 St @ 109 Ave,50.76,True,True,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,11026,Eastbound 104 Ave @ 245 St,1721.54,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,11027,Southbound 240 St @ 104 Ave,926.75,False,False,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,11028,Westbound 104 Ave @ 240 St,1087.49,False,False,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,11029,Northbound 240 St @ 10600 Block,573.89,False,True,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,11032,Southbound 240 St @ McClure Dr,300.48,True,True,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,11034,Westbound 104 Ave @ 244 St,1871.23,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,11035,Eastbound 104 Ave @ 244 St,1603.05,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,11439,Southbound Lougheed Hwy @ 116 Ave,1723.5,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,11514,Eastbound 102 Ave @ 242B St,1852.59,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,11971,Eastbound McClure Dr @ 24100 Block,689.05,False,True,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,11972,Westbound McClure Dr @ 106 Ave,539.8,False,True,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,11974,Westbound McClure Dr @ 245 St,1473.94,False,False,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,11975,Eastbound McClure Dr @ 245B St,1633.65,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,11977,Westbound McClure Dr @ 244 St,1175.15,False,False,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,11979,Westbound McClure Dr @ 243 St,917.61,False,False,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,11981,Eastbound McClure Dr @ 243 St,932.25,False,False,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,11982,Eastbound McClure Dr @ 244 St,1196.4,False,False,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,11984,Eastbound McClure Dr @ 245 St,1472.85,False,False,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,11986,Westbound McClure Dr @ 245B St,1633.65,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,11989,Eastbound McClure Dr @ 24700 Block,1827.43,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,11990,Westbound McClure Dr @ Kimola Dr,1827.43,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,11991,Northbound 248 St @ 106B Ave,2225.52,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,11993,Southbound Jackson Rd @ 105A Ave,2280.96,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,11994,Northbound Jackson Rd @ 105A Ave,2286.83,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,11997,Southbound 248 St @ 106B Ave,2269.22,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,11998,Eastbound McClure Dr @ 240 St,301.29,True,True,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,12444,Northbound 232 St @ Dewdney Trunk Rd,2346.42,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,12480,Eastbound Lougheed Hwy @ 227 St,2234.91,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,12481,Northbound 228 St @ Lougheed Hwy,2044.85,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,12921,Eastbound Dewdney Trunk Rd @ 240 St,2365.43,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,7679,Southbound 225 St @ Brickwood Close,2327.1,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,7680,Eastbound 116 Ave @ 22500 Block,2025.3,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,7681,Eastbound 116 Ave @ 227 St,1812.95,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,7685,Eastbound Dewdney Trunk Rd @ 232 St,2345.24,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,7699,Westbound Dewdney Trunk Rd @ 240 St,2334.32,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,7703,Westbound Dewdney Trunk Rd @ 232 St,2397.06,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,7708,Southbound 227 St @ Haney Bypass,1664.96,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,7709,Northbound 225 St @ Haney Bypass,2277.33,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,7710,Northbound 225 St @ Brickwood Close,2332.29,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,7769,Northbound 227 St @ Haney Bypass,1664.96,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,7770,Westbound 116 Ave @ 227 St,1879.31,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,7771,Westbound 116 Ave @ 22500 Block,2304.98,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,7861,Southbound 232 St @ Dewdney Trunk Rd,2266.96,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,7862,Southbound 232 St @ 118 Ave,1866.17,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,7863,Westbound 116 Ave @ 231B St,1564.47,False,False,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,7864,Westbound 116 Ave @ Lougheed Hwy,1546.94,False,False,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,7865,Westbound Lougheed Hwy @ 228 St,2110.31,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,7868,Eastbound Lougheed Hwy @ 228 St,1988.91,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,7869,Eastbound 116 Ave @ Lougheed Hwy,1587.57,False,False,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,7870,Eastbound 116 Ave @ 231B St,1564.47,False,False,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,7871,Northbound 232 St @ 118 Ave,2183.0,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,7956,Southbound 240 St @ Hill Ave,1684.82,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,7960,Eastbound Tamarack Lane @ Lougheed Hwy,204.27,True,True,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,7961,Southbound Tamarack Lane @ 108B Ave,492.06,False,True,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,7962,Southbound Tamarack Lane @ 108 Ave,257.33,True,True,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,7963,Southbound Tamarack Lane @ 106 Ave,625.38,False,True,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,7964,Westbound 105 Ave @ 23400 Block,1202.91,False,False,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,7965,(Eastbound River Rd In 23200-Block Area) (Flag),0.0,True,True,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,7966,(Eastbound River Rd In 23300-Block Area) (Flag),469.05,False,True,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,7967,(Eastbound River Rd In 23400-Block Area) (Flag),982.15,False,False,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,8000,Westbound River Rd @ 236 St,1628.63,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,8001,(Westbound River Rd In 23400-Block Area) (Flag),982.15,False,False,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,8002,(Westbound River Rd In 23200-Block Area) (Flag),363.56,True,True,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,8003,Eastbound 105 Ave @ 23400 Block,1207.27,False,False,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,8004,Northbound Tamarack Lane @ 105 Ave,741.39,False,True,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,8005,Northbound Tamarack Lane @ Tamarack Cres,456.48,False,True,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,8006,Northbound Tamarack Lane @ 108 Ave,243.43,True,True,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,8007,Northbound Tamarack Lane @ 108B Ave,545.71,False,True,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,8008,Westbound Tamarack Lane @ Lougheed Hwy,159.72,True,True,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,9133,Southbound 228 St @ Selkirk Ave,2209.51,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,9632,Southbound Jackson Rd @ 104 Ave,1954.86,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,9635,Westbound 104 Ave @ 245 St,1721.54,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,9656,Eastbound 116 Ave @ Burnett St,1694.31,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,9657,Westbound 105 Ave @ 23500 Block,981.92,False,False,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,9658,Northbound 240 St @ Hill Ave,1753.72,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,9662,Eastbound 102 Ave @ 241A St,1677.69,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,9663,Eastbound 102 Ave @ 244 St,2070.16,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,9665,Northbound Jackson Rd @ 103 Ave,2168.71,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,9671,Northbound 240 St @ McClure Dr,284.76,True,True,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,9672,Northbound 240 St @ 109 Ave,50.76,True,True,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,9673,Westbound 112 Ave @ 240 St,746.6,False,True,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,9674,Westbound Kanaka Way @ 238 St,756.71,False,True,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,9675,Westbound Kanaka Way @ Creekside St,1021.4,False,False,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,9678,Northbound 236 St @ 112B Ave,1647.07,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,9679,Northbound 236 St @ 114A Ave,1852.02,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,9680,Eastbound 116 Ave @ 236B St,1941.85,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,9681,Northbound Creekside St @ 116 Ave,1974.14,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,9682,Northbound 238B St @ 118 Ave,2280.87,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,9685,Southbound 238B St @ 118 Ave,2287.63,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,9686,Southbound Creekside St @ 11600 Block,1995.76,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,9687,Westbound 116 Ave @ 23700 Block,2048.43,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,9689,Southbound 236 St @ 113A Ave,1647.07,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,9690,Southbound Gilker Hill Rd @ 11100 Block,1311.57,False,False,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,9691,Eastbound Kanaka Way @ 236 St,1114.88,False,False,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,9692,Eastbound Kanaka Way @ Creekside St,997.81,False,False,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,9693,Eastbound Kanaka Way @ 238 St,756.71,False,True,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,9695,Southbound 240 St @ 110 Ave,259.03,True,True,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,9701,Southbound Jackson Rd @ 103 Ave,2230.37,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,9702,Westbound 102 Ave @ 244 St,2073.61,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,9703,Westbound 102 Ave @ 243 St,1981.03,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,9704,Westbound 102 Ave @ 241A St,1660.27,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,9707,Eastbound 105 Ave @ 23500 Block,987.25,False,False,True,True
+49,Kanaka Creek Regional Park (riverfront) 1,9708,Westbound 116 Ave @ Burnett St,1688.1,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,9711,Southbound 225 St @ Haney Bypass,2008.14,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,9953,Southbound 236 St @ 116 Ave,1922.73,False,False,False,True
+49,Kanaka Creek Regional Park (riverfront) 1,9995,Eastbound River Rd @ 23900 Block,1979.01,False,False,False,True
+75,Erwin Park,10328,Caulfeild Village @ Safeway,2304.9,False,False,False,True
+75,Erwin Park,12848,Westbound Ripple Rd @ Ripple Place,1485.32,False,False,True,True
+75,Erwin Park,4624,Southbound Marine Dr @ Crossway,2392.03,False,False,False,True
+75,Erwin Park,4625,Eastbound Marine Dr @ Beacon Lane,2187.83,False,False,False,True
+75,Erwin Park,4626,Eastbound Marine Dr @ The Dale,1831.76,False,False,False,True
+75,Erwin Park,4627,Eastbound Marine Dr @ McKenzie Dr,1582.56,False,False,True,True
+75,Erwin Park,4628,Eastbound Marine Dr @ N Piccadilly Rd,971.83,False,False,True,True
+75,Erwin Park,4629,Eastbound Marine Dr @ Morgan Cres,381.5,True,True,True,True
+75,Erwin Park,4630,Eastbound Marine Dr @ 4100 Block,448.32,False,True,True,True
+75,Erwin Park,4631,Eastbound Marine Dr @ Sherman St,784.8,False,True,True,True
+75,Erwin Park,4632,Eastbound Marine Dr @ Rose Cres,1102.0,False,False,True,True
+75,Erwin Park,4633,Eastbound Marine Dr @ Sharon Dr,1231.73,False,False,True,True
+75,Erwin Park,4634,Eastbound Marine Dr @ 3700 Block,1853.18,False,False,False,True
+75,Erwin Park,4635,Eastbound Marine Dr @ 3600 Block,2334.56,False,False,False,True
+75,Erwin Park,4636,Eastbound Marine Dr @ Creery Ave,2298.92,False,False,False,True
+75,Erwin Park,4682,Westbound Marine Dr @ Creery Ave,2302.46,False,False,False,True
+75,Erwin Park,4683,Westbound Marine Dr @ 3600 Block,2185.94,False,False,False,True
+75,Erwin Park,4684,Westbound Marine Dr @ 3700 Block,2218.85,False,False,False,True
+75,Erwin Park,4685,Westbound Marine Dr @ Sharon Dr,1231.73,False,False,True,True
+75,Erwin Park,4686,Westbound Marine Dr @ Rose Cres,1095.31,False,False,True,True
+75,Erwin Park,4687,Westbound Marine Dr @ Sherman St,784.8,False,True,True,True
+75,Erwin Park,4688,Westbound Marine Dr @ 4200 Block,448.32,False,True,True,True
+75,Erwin Park,4689,Westbound Marine Dr @ Morgan Cres,371.62,True,True,True,True
+75,Erwin Park,4690,Westbound Marine Dr @ N Piccadilly Rd,971.83,False,False,True,True
+75,Erwin Park,4691,Westbound Marine Dr @ McKenzie Dr,1424.46,False,False,True,True
+75,Erwin Park,4692,Westbound Marine Dr @ The Dale,1831.76,False,False,False,True
+75,Erwin Park,4693,Westbound Marine Dr @ Beacon Lane,2187.83,False,False,False,True
+75,Erwin Park,4756,Eastbound Caulfeild Dr @ Headland Dr,2239.99,False,False,False,True
+75,Erwin Park,4758,Westbound Caulfeild Dr @ Willow Creek Rd,1549.83,False,False,True,True
+75,Erwin Park,4759,Westbound Caulfeild Dr @ Piccadilly North,1687.43,False,False,False,True
+75,Erwin Park,4760,Westbound Caulfeild Dr @ Cherbourg Dr,1627.4,False,False,False,True
+75,Erwin Park,4761,Eastbound Cherbourg Dr @ Keith Rd,1429.89,False,False,True,True
+75,Erwin Park,4762,Eastbound Keith Rd @ 4400 Block,1162.41,False,False,True,True
+75,Erwin Park,4763,Southbound Keith Rd @ Rockridge Rd,912.09,False,False,True,True
+75,Erwin Park,4764,Southbound Keith Rd @ Stone Cres,570.9,False,True,True,True
+75,Erwin Park,4775,Westbound Westridge Ave @ 3900 Block,1579.69,False,False,True,True
+75,Erwin Park,4777,Westbound Woodcrest Rd @ Almondel Rd,2288.78,False,False,False,True
+75,Erwin Park,4778,Westbound Woodcrest Rd @ Woodgreen Dr,2025.52,False,False,False,True
+75,Erwin Park,4779,Northbound Woodgreen Dr @ Woodgreen Place,2194.76,False,False,False,True
+75,Erwin Park,8669,Northbound Almondel Rd @ Ripple Rd,1686.57,False,False,False,True
+75,Erwin Park,8671,Eastbound Caulfeild Dr @ Estevan Place,1864.02,False,False,False,True
+79,Larson Bay Park,13101,Keith Rd @ Horseshoe Bay Ferry Terminal,1793.01,False,False,False,True
+79,Larson Bay Park,4608,Keith Rd @ Horseshoe Bay Ferry Terminal,1828.41,False,False,False,True
+79,Larson Bay Park,4609,Southbound Nelson Ave @ Bay St,1608.45,False,False,False,True
+79,Larson Bay Park,4611,Eastbound Marine Dr @ Nelson Ave,1063.65,False,False,True,True
+79,Larson Bay Park,4612,Southbound Marine Dr @ 6300 Block,1354.65,False,False,True,True
+79,Larson Bay Park,4613,Southbound Marine Dr @ Horseshoe Bay Park & Ride,967.6,False,False,True,True
+79,Larson Bay Park,4614,Southbound Marine Dr @ Orchill Rd,518.89,False,True,True,True
+79,Larson Bay Park,4615,Southbound Marine Dr @ Eagleridge Dr,755.63,False,True,True,True
+79,Larson Bay Park,4616,Southbound Marine Dr @ Gleneagles Dr,904.26,False,False,True,True
+79,Larson Bay Park,4617,Eastbound Marine Dr @ 5800 Block,1706.96,False,False,False,True
+79,Larson Bay Park,4618,Eastbound Marine Dr @ Primrose Place,2171.72,False,False,False,True
+79,Larson Bay Park,4700,Northbound Marine Dr @ Primrose Place,2171.72,False,False,False,True
+79,Larson Bay Park,4701,Westbound Marine Dr @ 5800 Block,1694.26,False,False,False,True
+79,Larson Bay Park,4702,Northbound Marine Dr @ Gleneagles Dr,904.26,False,False,True,True
+79,Larson Bay Park,4703,Northbound Marine Dr @ Eagleridge Dr,782.71,False,True,True,True
+79,Larson Bay Park,4704,Northbound Marine Dr @ Orchill Rd,530.11,False,True,True,True
+79,Larson Bay Park,4705,Northbound Marine Dr @ Horseshoe Bay Park & Ride,1022.88,False,False,True,True
+79,Larson Bay Park,4706,Northbound Marine Dr @ 6300 Block,1354.65,False,False,True,True
+79,Larson Bay Park,4707,Northbound Nelson Ave @ Chatham St,1241.16,False,False,True,True
+79,Larson Bay Park,4708,Northbound Royal Ave @ Argyle Ave,1410.12,False,False,True,True
+79,Larson Bay Park,4709,Eastbound Bruce St @ Royal Ave,1645.49,False,False,False,True
+79,Larson Bay Park,8629,Southbound Nelson Ave @ 6400 Block,1354.27,False,False,True,True
+79,Larson Bay Park,8638,Westbound Marine Dr @ Nelson Ave,1035.46,False,False,True,True
+106,Deering Island Park,13135,Westbound W 41 Ave @ Blenheim St,2155.61,False,False,False,True
+106,Deering Island Park,1902,Eastbound W 41 Ave @ Crown St,2333.87,False,False,False,True
+106,Deering Island Park,1910,Southbound Crown St @ SW Marine Dr,2243.74,False,False,False,True
+106,Deering Island Park,1961,Southbound Dunbar St @ W 43 Ave,2303.8,False,False,False,True
+106,Deering Island Park,1962,Southbound Dunbar St @ SW Marine Dr,2160.42,False,False,False,True
+106,Deering Island Park,1963,Eastbound SW Marine Dr @ Blenheim St,1642.37,False,False,False,True
+106,Deering Island Park,1964,Eastbound SW Marine Dr @ Balaclava St,1685.71,False,False,False,True
+106,Deering Island Park,1967,Eastbound W 49 Ave @ McCleery St,2030.33,False,False,False,True
+106,Deering Island Park,1968,Eastbound W 49 Ave @ Marine Cres,2309.82,False,False,False,True
+106,Deering Island Park,2064,Westbound W 49 Ave @ Larch St,2333.27,False,False,False,True
+106,Deering Island Park,2065,Westbound W 49 Ave @ Macdonald St,2065.54,False,False,False,True
+106,Deering Island Park,2067,Westbound SW Marine Dr @ Carnarvon St,1820.46,False,False,False,True
+106,Deering Island Park,2068,Westbound SW Marine Dr @ Blenheim St,1634.0,False,False,False,True
+106,Deering Island Park,2070,Northbound Dunbar St @ SW Marine Dr,2095.7,False,False,False,True
+106,Deering Island Park,2071,Northbound Dunbar St @ W 43 Ave,2351.95,False,False,False,True
+106,Deering Island Park,300,Westbound W 41 Ave @ Collingwood St,2353.88,False,False,False,True
+106,Deering Island Park,378,Eastbound W 41 Ave @ Collingwood St,2308.15,False,False,False,True
+106,Deering Island Park,379,Eastbound W 41 Ave @ Blenheim St,2075.42,False,False,False,True
+106,Deering Island Park,9119,Eastbound W 41 Ave @ Crown St,2333.87,False,False,False,True
+111,Vanier Park,10046,Westbound Beach Ave @ Howe St,1803.06,False,False,False,True
+111,Vanier Park,10048,Westbound Beach Ave @ Thurlow St,1778.69,False,False,False,True
+111,Vanier Park,10049,Westbound Beach Ave @ Bute St,1970.31,False,False,False,True
+111,Vanier Park,10064,Westbound Pacific St @ Jervis St,2099.68,False,False,False,True
+111,Vanier Park,101,Westbound Cornwall Ave @ Cypress St,661.3,False,True,True,True
+111,Vanier Park,1013,Northbound Seymour St @ Davie St,2333.98,False,False,False,True
+111,Vanier Park,103,Westbound Cornwall Ave @ Arbutus St,914.77,False,False,True,True
+111,Vanier Park,10357,Westbound W 6th Ave @ Alder Crossing,1555.5,False,False,True,True
+111,Vanier Park,104,Westbound Cornwall Ave @ Yew St,1036.05,False,False,True,True
+111,Vanier Park,10424,Westbound Davie St @ Richards St,2320.58,False,False,False,True
+111,Vanier Park,105,Westbound Cornwall Ave @ Balsam St,1324.45,False,False,True,True
+111,Vanier Park,10542,Eastbound Cornwall Ave @ Balsam St,1295.31,False,False,True,True
+111,Vanier Park,106,Westbound Cornwall Ave @ Trafalgar St,1660.64,False,False,False,True
+111,Vanier Park,10694,Eastbound Pacific St @ Richards St,2135.58,False,False,False,True
+111,Vanier Park,107,Southbound Macdonald St @ W 1st Ave,2009.15,False,False,False,True
+111,Vanier Park,10966,Westbound W 16 Ave @ Granville St,2391.43,False,False,False,True
+111,Vanier Park,11,Eastbound Davie St @ Howe St,2102.37,False,False,False,True
+111,Vanier Park,1103,Southbound Arbutus St @ W 12 Ave,2261.75,False,False,False,True
+111,Vanier Park,11043,Westbound W 16 Ave @ Burrard St,2293.1,False,False,False,True
+111,Vanier Park,11059,Eastbound W 16 Ave @ Burrard St,2312.89,False,False,False,True
+111,Vanier Park,11403,Northbound Granville St @ W 10 Ave,1700.07,False,False,False,True
+111,Vanier Park,11422,Westbound W Broadway @ Arbutus St,1973.04,False,False,False,True
+111,Vanier Park,11426,Northbound Granville St @ Drake St,2096.68,False,False,False,True
+111,Vanier Park,11427,Southbound Granville St @ Davie St,2089.01,False,False,False,True
+111,Vanier Park,11429,Northbound Granville St @ Davie St,2242.95,False,False,False,True
+111,Vanier Park,11473,Northbound Burrard St @ W 3rd Ave,961.11,False,False,True,True
+111,Vanier Park,11475,Southbound Granville St @ Drake St,1979.27,False,False,False,True
+111,Vanier Park,11542,Southbound Howe St @ Davie St,2061.89,False,False,False,True
+111,Vanier Park,11563,Southbound Burrard St @ Burnaby St,1787.49,False,False,False,True
+111,Vanier Park,11724,Eastbound W Broadway @ Yew St,2023.64,False,False,False,True
+111,Vanier Park,11881,Northbound Burrard St @ Comox St,2173.71,False,False,False,True
+111,Vanier Park,12040,Eastbound Cornwall Ave @ Trafalgar St,1631.65,False,False,False,True
+111,Vanier Park,12334,Eastbound Davie St @ Richards St,2342.84,False,False,False,True
+111,Vanier Park,12348,Eastbound Davie St @ Granville St,2204.17,False,False,False,True
+111,Vanier Park,12494,Southbound Burrard St @ Harwood St,1675.7,False,False,False,True
+111,Vanier Park,12703,Eastbound W 12th Ave @ Arbutus St,2206.5,False,False,False,True
+111,Vanier Park,12704,Eastbound W 12th Ave @ Cypress St,1940.85,False,False,False,True
+111,Vanier Park,12705,Westbound W 12th Ave @ Cypress St,1937.15,False,False,False,True
+111,Vanier Park,12706,Eastbound W 12 Ave @ Pine St,1992.21,False,False,False,True
+111,Vanier Park,12707,Westbound W 12th Ave @ Pine St,1960.67,False,False,False,True
+111,Vanier Park,12721,Eastbound W Broadway @ Granville St,1651.23,False,False,False,True
+111,Vanier Park,12770,Eastbound Pacific St @ Jervis St,2071.29,False,False,False,True
+111,Vanier Park,12771,Eastbound Pacific St @ Thurlow St,1703.23,False,False,False,True
+111,Vanier Park,12789,Eastbound W Broadway @ Spruce St,2114.21,False,False,False,True
+111,Vanier Park,12791,Westbound W Broadway @ Hemlock St,1806.8,False,False,False,True
+111,Vanier Park,12804,Eastbound Pacific St @ Seymour Mews,2006.51,False,False,False,True
+111,Vanier Park,12813,Eastbound W 4th Ave @ Yew St,1603.38,False,False,False,True
+111,Vanier Park,12814,Eastbound W 4th Ave @ Maple St,1296.64,False,False,True,True
+111,Vanier Park,12815,Westbound W 4th Ave @ Yew St,1524.2,False,False,True,True
+111,Vanier Park,12819,Eastbound W 6th Ave @ Alder St,1653.25,False,False,False,True
+111,Vanier Park,12976,Northbound Granville St @ W 13th Ave,2099.57,False,False,False,True
+111,Vanier Park,13004,Westbound W 12 Ave @ Granville St,1976.75,False,False,False,True
+111,Vanier Park,13091,Westbound Pacific St @ Richards St,2059.33,False,False,False,True
+111,Vanier Park,1379,Southbound Macdonald St @ W 4th Ave,2350.12,False,False,False,True
+111,Vanier Park,1959,Southbound Burrard St @ W 3rd Ave,1022.29,False,False,True,True
+111,Vanier Park,2075,Westbound Lameys Mill Rd @ Sitka Square,1695.54,False,False,False,True
+111,Vanier Park,2076,Westbound Lameys Mill Rd @ Alder Crossing,1512.44,False,False,True,True
+111,Vanier Park,2077,Westbound Lameys Mill Rd @ 1300 Block,1362.16,False,False,True,True
+111,Vanier Park,2078,Westbound W 2nd Ave @ Anderson St,940.92,False,False,True,True
+111,Vanier Park,2079,Southbound Fir St @ W 2nd Ave,922.22,False,False,True,True
+111,Vanier Park,2081,Northbound Fir St @ W 4th Ave,1023.84,False,False,True,True
+111,Vanier Park,2082,Eastbound W 2nd Ave @ Fir St,935.04,False,False,True,True
+111,Vanier Park,2083,Eastbound W 2nd Ave @ Anderson St,948.35,False,False,True,True
+111,Vanier Park,2084,Eastbound Lameys Mill Rd @ Fountain Way Court,1272.11,False,False,True,True
+111,Vanier Park,2085,Eastbound Lameys Mill Rd @ Alder Crossing,1551.21,False,False,True,True
+111,Vanier Park,2086,Eastbound Lameys Mill Rd @ Sitka Square,1755.6,False,False,False,True
+111,Vanier Park,218,Northbound Granville St @ W 7th Ave,1479.96,False,False,True,True
+111,Vanier Park,25,Westbound Davie St @ Granville St,2119.81,False,False,False,True
+111,Vanier Park,26,Westbound Davie St @ Howe St,2021.19,False,False,False,True
+111,Vanier Park,325,Eastbound W Broadway @ Vine St,2158.09,False,False,False,True
+111,Vanier Park,326,Eastbound W Broadway @ Arbutus St,1973.15,False,False,False,True
+111,Vanier Park,328,Eastbound W Broadway @ Burrard St,1617.99,False,False,False,True
+111,Vanier Park,329,Eastbound W Broadway @ Fir St,1570.98,False,False,True,True
+111,Vanier Park,331,Eastbound W Broadway @ Hemlock St,1905.22,False,False,False,True
+111,Vanier Park,332,Eastbound W Broadway @ Alder St,1970.82,False,False,False,True
+111,Vanier Park,397,Eastbound W 4th Ave @ Macdonald St,2302.92,False,False,False,True
+111,Vanier Park,398,Eastbound W 4th Ave @ Trafalgar St,2119.21,False,False,False,True
+111,Vanier Park,400,Eastbound W 4th Ave @ Balsam St,1741.15,False,False,False,True
+111,Vanier Park,404,Eastbound W 4th Ave @ Burrard St,1119.68,False,False,True,True
+111,Vanier Park,405,Eastbound W 4th Ave @ Fir St,1137.06,False,False,True,True
+111,Vanier Park,407,Westbound W 5th Ave @ Granville St,1296.53,False,False,True,True
+111,Vanier Park,46,Southbound Burrard St @ Barclay St,2328.45,False,False,False,True
+111,Vanier Park,468,Westbound W Broadway @ Spruce St,2073.86,False,False,False,True
+111,Vanier Park,469,Westbound W Broadway @ Alder St,1904.82,False,False,False,True
+111,Vanier Park,47,Southbound Burrard St @ Nelson St,2157.02,False,False,False,True
+111,Vanier Park,48,Westbound Davie St @ Burrard St,1903.12,False,False,False,True
+111,Vanier Park,4879,Northbound Granville St @ W 5th Ave,1270.34,False,False,True,True
+111,Vanier Park,4884,Southbound Howe St @ Nelson St,2319.54,False,False,False,True
+111,Vanier Park,4887,Southbound Granville St @ W 5th Ave,1339.33,False,False,True,True
+111,Vanier Park,49,Westbound Davie St @ Thurlow St,2075.68,False,False,False,True
+111,Vanier Park,50,Westbound Davie St @ Bute St,2274.45,False,False,False,True
+111,Vanier Park,542,Westbound W 5th Ave Offramp @ Granville St,1246.79,False,False,True,True
+111,Vanier Park,544,Southbound Granville St @ W 7th Ave,1503.52,False,False,True,True
+111,Vanier Park,545,Westbound W Broadway @ Granville St,1564.92,False,False,True,True
+111,Vanier Park,548,Southbound Granville St @ W 13 Ave,2123.67,False,False,False,True
+111,Vanier Park,563,Westbound W Broadway @ Burrard St,1584.0,False,False,True,True
+111,Vanier Park,566,Westbound W Broadway @ Yew St,2003.09,False,False,False,True
+111,Vanier Park,567,Westbound W Broadway @ Balsam St,2257.7,False,False,False,True
+111,Vanier Park,584,Westbound W 4th Ave @ Fir St,1057.41,False,False,True,True
+111,Vanier Park,585,Westbound W 4th Ave @ Burrard St,1073.68,False,False,True,True
+111,Vanier Park,586,Westbound W 4th Ave @ Maple St,1300.79,False,False,True,True
+111,Vanier Park,589,Westbound W 4th Ave @ Balsam St,1781.68,False,False,False,True
+111,Vanier Park,590,Westbound W 4th Ave @ Trafalgar St,2112.34,False,False,False,True
+111,Vanier Park,591,Westbound W 4th Ave @ Macdonald St,2290.58,False,False,False,True
+111,Vanier Park,63,Northbound Macdonald St @ W 4th Ave,2238.89,False,False,False,True
+111,Vanier Park,64,Northbound Macdonald St @ W 2nd Ave,2082.27,False,False,False,True
+111,Vanier Park,642,Eastbound Davie St @ Jervis St,2397.21,False,False,False,True
+111,Vanier Park,643,Eastbound Davie St @ Bute St,2237.08,False,False,False,True
+111,Vanier Park,644,Eastbound Davie St @ Thurlow St,2018.84,False,False,False,True
+111,Vanier Park,69,Eastbound Cornwall Ave @ Yew St,1050.13,False,False,True,True
+111,Vanier Park,70,Eastbound Cornwall Ave @ Arbutus St,933.21,False,False,True,True
+111,Vanier Park,72,Eastbound Cornwall Ave @ Cypress St,662.04,False,True,True,True
+111,Vanier Park,73,Northbound Burrard St @ Pacific St,1630.57,False,False,False,True
+111,Vanier Park,74,Eastbound Davie St @ Burrard St,1938.54,False,False,False,True
+111,Vanier Park,75,Northbound Burrard St @ Davie St,1896.29,False,False,False,True
+111,Vanier Park,9136,Southbound Granville St @ W Broadway,1790.4,False,False,False,True
+111,Vanier Park,935,W 10 Ave @ Fir St,1683.26,False,False,False,True
+111,Vanier Park,9522,Westbound W Broadway @ Pine St,1643.29,False,False,False,True
+111,Vanier Park,98,Southbound Burrard St @ Davie St,1860.85,False,False,False,True
+129,Cross's Cabins,11070,Southbound 240 St @ 118 Ave,2364.94,False,False,False,True
+129,Cross's Cabins,11245,Northbound 232 St @ Fern Cres,1293.25,False,False,True,True
+129,Cross's Cabins,11305,Southbound 232 St @ Fern Cres,1237.99,False,False,True,True
+129,Cross's Cabins,12381,Eastbound 133 Ave @ Rock Ridge Dr,1016.81,False,False,True,True
+129,Cross's Cabins,12447,Northbound 232 St @ 126 Ave,2385.16,False,False,False,True
+129,Cross's Cabins,12449,Eastbound Larch Ave @ Balsam St,935.5,False,False,True,True
+129,Cross's Cabins,12450,Eastbound 133 Ave @ 236 St,802.94,False,False,True,True
+129,Cross's Cabins,12451,Eastbound 133 Ave @ 23800 Block,1090.11,False,False,True,True
+129,Cross's Cabins,12452,Southbound 239B St @ 133 Ave,1236.42,False,False,True,True
+129,Cross's Cabins,12453,Southbound 239B St @ 132 Ave,879.98,False,False,True,True
+129,Cross's Cabins,12454,Westbound 130 Ave @ 239B St,600.15,False,True,True,True
+129,Cross's Cabins,12455,Westbound Fern Cres @ 23600 Block,160.77,True,True,True,True
+129,Cross's Cabins,12456,Westbound Fern Cres @ Balsam St,697.72,False,True,True,True
+129,Cross's Cabins,12458,Northbound 232 St @ 132 Ave,1357.04,False,False,True,True
+129,Cross's Cabins,12459,Northbound 232 St @ 136 Ave,1932.32,False,False,False,True
+129,Cross's Cabins,12467,Westbound Silver Valley Rd @ 232A St,2201.18,False,False,False,True
+129,Cross's Cabins,12468,Southbound 232 St @ 136 Ave,1938.89,False,False,False,True
+129,Cross's Cabins,12469,Southbound 232 St @ 132 Ave,1357.04,False,False,True,True
+129,Cross's Cabins,12470,Westbound 128 Ave @ 232 St,1965.45,False,False,False,True
+129,Cross's Cabins,12921,Eastbound Dewdney Trunk Rd @ 240 St,2114.83,False,False,False,True
+129,Cross's Cabins,7688,Eastbound Dewdney Trunk Rd @ 237A St,2371.98,False,False,False,True
+129,Cross's Cabins,7699,Westbound Dewdney Trunk Rd @ 240 St,2103.44,False,False,False,True
+129,Cross's Cabins,7850,Eastbound 128 Ave @ 230 St,2331.97,False,False,False,True
+129,Cross's Cabins,7851,Northbound 232 St @ 128 Ave,1873.54,False,False,False,True
+129,Cross's Cabins,7852,Northbound 232 St @ Dogwood Ave,1592.38,False,False,True,True
+129,Cross's Cabins,7856,Southbound 232 St @ Dogwood Ave,1605.37,False,False,False,True
+129,Cross's Cabins,7857,Southbound 232 St @ 128 Ave,1929.61,False,False,False,True
+129,Cross's Cabins,7858,Southbound 232 St @ 126 Ave,2385.71,False,False,False,True
+129,Cross's Cabins,9683,Westbound Dewdney Trunk Rd @ 238B St,2298.78,False,False,False,True
+129,Cross's Cabins,9684,Southbound 238B St @ Dewdney Trunk Rd,2333.38,False,False,False,True
+129,Cross's Cabins,9854,Eastbound Dewdney Trunk Rd @ 238B St,2290.28,False,False,False,True
+134,Marina Park,10035,Westbound River Rd @ 23900 Block,1234.81,False,False,True,True
+134,Marina Park,10060,Eastbound River Rd @ 236 St,2155.19,False,False,False,True
+134,Marina Park,7269,Northbound Glover Rd @ 88 Ave,1227.47,False,False,True,True
+134,Marina Park,7270,Northbound Glover Rd @ St. Andrews Ave,689.52,False,True,True,True
+134,Marina Park,7271,Westbound 96 Ave @ Glover Rd,517.17,False,True,True,True
+134,Marina Park,7272,Southbound Trattle St @ 96 Ave,1068.01,False,False,True,True
+134,Marina Park,7273,Southbound Trattle St @ 9100 Block,1394.94,False,False,True,True
+134,Marina Park,7274,Southbound Trattle St @ Houston Ave,1561.75,False,False,True,True
+134,Marina Park,7275,Westbound 88 Ave @ Trattle St,1563.6,False,False,True,True
+134,Marina Park,7276,Westbound 88 Ave @ Wright St,1769.4,False,False,False,True
+134,Marina Park,7316,Eastbound 88 Ave @ Wright St,1769.4,False,False,False,True
+134,Marina Park,7317,Northbound Trattle St @ 88 Ave,1557.58,False,False,True,True
+134,Marina Park,7318,Northbound Trattle St @ Houston Ave,1561.75,False,False,True,True
+134,Marina Park,7319,Northbound Trattle St @ 9000 Block,1394.94,False,False,True,True
+134,Marina Park,7320,Eastbound 96 Ave @ Trattle St,1017.44,False,False,True,True
+134,Marina Park,7321,Eastbound 96 Ave @ Glover Rd,554.73,False,True,True,True
+134,Marina Park,7322,Southbound Glover Rd @ St. Andrews Ave,830.86,False,False,True,True
+134,Marina Park,7323,Southbound Glover Rd @ 88 Ave,1567.37,False,False,True,True
+134,Marina Park,7956,Southbound 240 St @ Hill Ave,1234.81,False,False,True,True
+134,Marina Park,7967,(Eastbound River Rd In 23400-Block Area) (Flag),2155.19,False,False,False,True
+134,Marina Park,8000,Westbound River Rd @ 236 St,2155.19,False,False,False,True
+134,Marina Park,8001,(Westbound River Rd In 23400-Block Area) (Flag),2155.19,False,False,False,True
+134,Marina Park,9658,Northbound 240 St @ Hill Ave,1234.81,False,False,True,True
+134,Marina Park,9995,Eastbound River Rd @ 23900 Block,1234.81,False,False,True,True
+142,Strathcona Park,10130,Northbound Banbury Rd @ Gallant Ave,1233.55,False,False,True,True
+142,Strathcona Park,10962,Eastbound Indian River Dr @ Mt Seymour Rd,2255.08,False,False,False,True
+142,Strathcona Park,11327,Westbound Indian River Dr @ Mt Seymour Rd,2324.44,False,False,False,True
+142,Strathcona Park,11572,Eastbound Bedwell Bay Rd @ Midden Rd,307.43,True,True,True,True
+142,Strathcona Park,4080,Eastbound Mt Seymour Parkway @ Roche Point Dr,2059.03,False,False,False,True
+142,Strathcona Park,4081,Eastbound Mt Seymour Parkway @ 3800 Block,1896.83,False,False,False,True
+142,Strathcona Park,4082,Eastbound Mt Seymour Parkway @ 4000 Block,1566.53,False,False,True,True
+142,Strathcona Park,4083,Southbound Fairway Dr @ Mt Seymour Parkway,1300.28,False,False,True,True
+142,Strathcona Park,4084,Southbound Fairway Dr @ Huntingdon Cres,1531.16,False,False,True,True
+142,Strathcona Park,4085,Southbound Fairway Dr @ Caddy Rd,1787.65,False,False,False,True
+142,Strathcona Park,4086,Eastbound Dollar Rd @ Fairway Dr,2079.36,False,False,False,True
+142,Strathcona Park,4087,Eastbound Dollar Rd @ N Dollarton Hwy,1917.71,False,False,False,True
+142,Strathcona Park,4088,Northbound N Dollarton Hwy @ Caddy Rd,1504.12,False,False,True,True
+142,Strathcona Park,4089,Northbound N Dollarton Hwy @ Mt Seymour Parkway,1423.74,False,False,True,True
+142,Strathcona Park,4090,Northbound Deep Cove Rd @ Strathcona Rd,865.66,False,False,True,True
+142,Strathcona Park,4091,Northbound Deep Cove Rd @ 1600 Block,967.91,False,False,True,True
+142,Strathcona Park,4092,Northbound Deep Cove Rd @ Cliffmont Rd,1087.52,False,False,True,True
+142,Strathcona Park,4093,Northbound Deep Cove Rd @ Badger Rd,1348.96,False,False,True,True
+142,Strathcona Park,4094,Southbound Panorama Dr @ Naughton Ave,1229.55,False,False,True,True
+142,Strathcona Park,4096,Southbound Deep Cove Rd @ Badger Rd,1283.77,False,False,True,True
+142,Strathcona Park,4097,Southbound Deep Cove Rd @ Strathcona Rd,970.72,False,False,True,True
+142,Strathcona Park,4098,Southbound N Dollarton Hwy @ Mt Seymour Parkway,1423.74,False,False,True,True
+142,Strathcona Park,4099,Southbound N Dollarton Hwy @ Caddy Rd,1504.12,False,False,True,True
+142,Strathcona Park,4100,Westbound Dollar Rd @ N Dollarton Hwy,1917.71,False,False,False,True
+142,Strathcona Park,4101,Northbound Fairway Dr @ Dollar Rd,2008.52,False,False,False,True
+142,Strathcona Park,4102,Northbound Fairway Dr @ Caddy Rd,1778.01,False,False,False,True
+142,Strathcona Park,4103,Northbound Fairway Dr @ Huntingdon Cres,1531.16,False,False,True,True
+142,Strathcona Park,4104,Westbound Mt Seymour Parkway @ Beaufort Rd,1354.12,False,False,True,True
+142,Strathcona Park,4105,Westbound Mt Seymour Parkway @ 3900 Block,1566.89,False,False,True,True
+142,Strathcona Park,4106,Westbound Mt Seymour Parkway @ 3800 Block,1987.9,False,False,False,True
+142,Strathcona Park,4107,Westbound Mt Seymour Parkway @ Mt Seymour Rd,2200.84,False,False,False,True
+142,Strathcona Park,4130,Northbound N Dollarton Hwy @ Dollar Rd,1875.74,False,False,False,True
+142,Strathcona Park,4131,Southbound N Dollarton Hwy @ Dollar Rd,1973.35,False,False,False,True
+142,Strathcona Park,4168,Northbound Mt Seymour Rd @ Mt Seymour Parkway,2170.27,False,False,False,True
+142,Strathcona Park,4169,Northbound Mt Seymour Rd @ Hamber Place,2236.57,False,False,False,True
+142,Strathcona Park,4170,Eastbound Indian River Dr @ Lighthall Court,2090.03,False,False,False,True
+142,Strathcona Park,4171,Northbound Inlet Cres @ Indian River Dr,1921.09,False,False,False,True
+142,Strathcona Park,4172,Westbound Indian River Dr @ Cascade Court,2177.36,False,False,False,True
+142,Strathcona Park,4173,Southbound Mt Seymour Rd @ Hamber Place,2207.68,False,False,False,True
+142,Strathcona Park,9037,Southbound Deep Cove Rd @ 1400 Block,1198.98,False,False,True,True
+142,Strathcona Park,9157,Southbound Belcarra Bay Rd @ Salish Rd,735.31,False,True,True,True
+142,Strathcona Park,9433,Southbound Belcarra Bay Rd @ Whiskey Cove Lane,735.31,False,True,True,True
+142,Strathcona Park,9483,Westbound Bedwell Bay Rd @ Midden Rd,307.43,True,True,True,True

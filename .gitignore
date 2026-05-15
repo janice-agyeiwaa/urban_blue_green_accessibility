@@ -6,11 +6,12 @@ venv/
 .env
 .vscode/
 cache/
+*.gdb
 
 # Data - do not commit large/private project data
 data/raw/
 data/interim/
-data/processed/
+
 
 
 # ArcGIS locks/temp files

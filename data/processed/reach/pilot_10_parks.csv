@@ -1,0 +1,11 @@
+park_num,PARK_NAME,my_count,reference_count,count_difference,abs_count_difference,mean_nearest_distance_m,median_nearest_distance_m,max_nearest_distance_m
+106,Deering Island Park,2,2,0,0,0.55,0.55,0.8
+129,Cross's Cabins,8,8,0,0,0.63,0.57,1.29
+142,Strathcona Park,1,1,0,0,0.72,0.72,0.72
+134,Marina Park,2,2,0,0,0.74,0.74,1.27
+42,Emmeline Mohun Park (riverfro,1,1,0,0,0.89,0.89,0.89
+79,Larson Bay Park,2,2,0,0,1.03,1.03,1.13
+35,Deep Cove’s Parkside Beach,2,2,0,0,1.1,1.1,1.58
+111,Vanier Park,12,12,0,0,1.2,1.01,4.47
+75,Erwin Park,1,1,0,0,1.23,1.23,1.23
+49,Kanaka Creek Regional Park (riverfront) 1,20,20,0,0,1.25,1.24,2.26
