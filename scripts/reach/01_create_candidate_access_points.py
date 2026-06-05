@@ -1,20 +1,22 @@
 from pathlib import Path
 import geopandas as gpd
-import osmnx as ox
-from shapely.geometry import Point
-from shapely.ops import nearest_points
 
 # -------------------------
 # Paths
 # -------------------------
-land_buffer_path = r"data\raw\Park_Extraction_Project.gdb"
-land_buffer_layer = "allparks_land_buffer"
+project_root = Path(r"C:\Users\owusu\Desktop\work\under_lab\urban_blue_green_accessibility")
 
-output_dir = Path(r"data\interim\reach")
+parks_gdb = project_root / "data" / "raw" / "Park_Extraction_Project.gdb"
+composite_gdb = project_root / "data" / "raw" / "CompositeNetwork3.gdb"
+
+land_buffer_layer = "allparks_land_buffer"
+network_layer = "OSM_NA_Network_NAD_Point3"
+
+output_dir = project_root / "data" / "interim" / "reach"
 output_dir.mkdir(parents=True, exist_ok=True)
 
-raw_output = output_dir / "candidate_access_points_raw.gpkg"
-failed_output = output_dir / "candidate_access_points_failed_parks.csv"
+access_points_output = output_dir / "candidate_access_points_raw.gpkg"
+counts_output = output_dir / "access_point_counts_raw.csv"
 
 # -------------------------
 # Fields
@@ -23,200 +25,97 @@ park_id_field = "park_num"
 park_name_field = "PARK_NAME"
 
 # -------------------------
-# Settings
+# 1. Read land buffers
 # -------------------------
-osm_buffer_degrees = 0.01
-fallback_tolerances_m = [3, 5]
-
-# -------------------------
-# Read land buffer
-# -------------------------
-land = gpd.read_file(land_buffer_path, layer=land_buffer_layer)
-
-print("Land buffer records:", len(land))
-print("CRS:", land.crs)
+print("Reading land buffer...")
+land = gpd.read_file(parks_gdb, layer=land_buffer_layer)
 
 land = land[[park_id_field, park_name_field, "geometry"]].copy()
 land["geometry"] = land.geometry.make_valid()
 
-# -------------------------
-# Helper: extract points from intersection geometry
-# -------------------------
-def extract_points(geom):
-    points = []
-
-    if geom is None or geom.is_empty:
-        return points
-
-    if geom.geom_type == "Point":
-        points.append(geom)
-
-    elif geom.geom_type == "MultiPoint":
-        points.extend(list(geom.geoms))
-
-    elif geom.geom_type == "LineString":
-        coords = list(geom.coords)
-        if len(coords) >= 2:
-            points.append(Point(coords[0]))
-            points.append(Point(coords[-1]))
-
-    elif geom.geom_type == "MultiLineString":
-        for line in geom.geoms:
-            coords = list(line.coords)
-            if len(coords) >= 2:
-                points.append(Point(coords[0]))
-                points.append(Point(coords[-1]))
-
-    elif geom.geom_type == "GeometryCollection":
-        for part in geom.geoms:
-            points.extend(extract_points(part))
-
-    return points
+print("Land buffer records:", len(land))
+print("Land buffer CRS:", land.crs)
 
 # -------------------------
-# Process parks one by one
+# 2. Read composite network
 # -------------------------
-all_access_rows = []
-failed_parks = []
+print("\nReading composite network...")
+network = gpd.read_file(composite_gdb, layer=network_layer)
 
-for idx, park in land.iterrows():
-    park_id = park[park_id_field]
-    park_name = str(park[park_name_field]).strip()
+network = network[["geometry"]].copy()
+network["geometry"] = network.geometry.make_valid()
 
-    print(f"\nProcessing {idx + 1}/{len(land)} | {park_id} | {park_name}")
-
-    park_gdf = gpd.GeoDataFrame([park], geometry="geometry", crs=land.crs)
-
-    # OSMnx needs WGS84
-    park_wgs84 = park_gdf.to_crs(epsg=4326)
-    study_area = park_wgs84.geometry.iloc[0].buffer(osm_buffer_degrees)
-
-    try:
-        G = ox.graph_from_polygon(
-            study_area,
-            network_type="walk",
-            simplify=True
-        )
-
-        edges = ox.graph_to_gdfs(G, nodes=False, edges=True).reset_index()
-
-        if len(edges) == 0:
-            print("  No OSM edges found.")
-            failed_parks.append((park_id, park_name, "No OSM edges"))
-            continue
-
-        edges = edges.to_crs(land.crs)
-
-    except Exception as e:
-        print("  OSM download failed:", e)
-        failed_parks.append((park_id, park_name, f"OSM download failed: {e}"))
-        continue
-
-    # Create land buffer boundary
-    park_boundary = park_gdf.copy()
-    park_boundary["geometry"] = park_boundary.geometry.boundary
-    boundary_geom = park_boundary.geometry.iloc[0]
-
-    # -------------------------
-    # 1. Exact intersection
-    # -------------------------
-    intersections = gpd.overlay(
-        edges,
-        park_boundary[[park_id_field, park_name_field, "geometry"]],
-        how="intersection",
-        keep_geom_type=False
-    )
-
-    exact_point_count = 0
-
-    for _, row in intersections.iterrows():
-        pts = extract_points(row.geometry)
-
-        for pt in pts:
-            all_access_rows.append({
-                park_id_field: park_id,
-                park_name_field: park_name,
-                "method": "exact_intersection",
-                "snap_distance_m": 0,
-                "geometry": pt
-            })
-            exact_point_count += 1
-
-    if exact_point_count > 0:
-        print("  Exact candidate points:", exact_point_count)
-        continue
-
-    print("  No exact intersections. Trying tolerance fallback...")
-
-    # -------------------------
-    # 2. Tolerance fallback: 3 m, then 5 m
-    # -------------------------
-    fallback_found = False
-
-    for tolerance in fallback_tolerances_m:
-        nearby_edges = edges[edges.geometry.distance(boundary_geom) <= tolerance].copy()
-
-        print(f"  Nearby OSM edges within {tolerance} m:", len(nearby_edges))
-
-        if len(nearby_edges) == 0:
-            continue
-
-        fallback_point_count = 0
-
-        for _, edge in nearby_edges.iterrows():
-            point_on_boundary, point_on_edge = nearest_points(
-                boundary_geom,
-                edge.geometry
-            )
-
-            dist = point_on_boundary.distance(point_on_edge)
-
-            all_access_rows.append({
-                park_id_field: park_id,
-                park_name_field: park_name,
-                "method": f"nearest_osm_within_{tolerance}m",
-                "snap_distance_m": round(dist, 2),
-                "geometry": point_on_boundary
-            })
-
-            fallback_point_count += 1
-
-        print(f"  Fallback candidate points:", fallback_point_count)
-        fallback_found = True
-        break
-
-    if not fallback_found:
-        print("  Still no candidates.")
-        failed_parks.append((park_id, park_name, "No exact or fallback candidates"))
+print("Network records:", len(network))
+print("Network CRS:", network.crs)
 
 # -------------------------
-# Save candidate access points
+# 3. Match CRS
 # -------------------------
-if len(all_access_rows) == 0:
-    print("\nNo candidate access points were created.")
-    raise SystemExit
+if network.crs != land.crs:
+    print("\nReprojecting network to match land buffer CRS...")
+    network = network.to_crs(land.crs)
 
-access_raw = gpd.GeoDataFrame(
-    all_access_rows,
-    geometry="geometry",
-    crs=land.crs
+# -------------------------
+# 4. Create land buffer boundary
+# -------------------------
+print("\nCreating land buffer boundaries...")
+land_boundary = land.copy()
+land_boundary["geometry"] = land_boundary.geometry.boundary
+
+# -------------------------
+# 5. Intersect network with land buffer boundary
+# -------------------------
+print("\nCreating candidate access points...")
+
+access_points = gpd.overlay(
+    network,
+    land_boundary,
+    how="intersection",
+    keep_geom_type=False
 )
 
-print("\nTotal candidate access points:", len(access_raw))
+# Keep only point geometries
+access_points = access_points[
+    access_points.geometry.geom_type.isin(["Point", "MultiPoint"])
+].copy()
 
-access_raw.to_file(raw_output, driver="GPKG")
-print("Saved access points:", raw_output)
+# Explode MultiPoints into individual Points
+access_points = access_points.explode(index_parts=False).reset_index(drop=True)
+
+# Add method field
+access_points["method"] = "composite_network_boundary_intersection"
+
+print("Raw access points created:", len(access_points))
 
 # -------------------------
-# Save failed parks log
+# 6. Save raw access points
 # -------------------------
-if len(failed_parks) > 0:
-    failed_df = gpd.pd.DataFrame(
-        failed_parks,
-        columns=[park_id_field, park_name_field, "reason"]
-    )
+access_points.to_file(access_points_output, driver="GPKG")
+print("\nSaved raw access points:")
+print(access_points_output)
 
-    failed_df.to_csv(failed_output, index=False)
-    print("Saved failed parks log:", failed_output)
+# -------------------------
+# 7. Count access points per park
+# -------------------------
+counts = (
+    access_points
+    .groupby([park_id_field, park_name_field])
+    .size()
+    .reset_index(name="raw_access_point_count")
+    .sort_values(park_id_field)
+)
+
+counts.to_csv(counts_output, index=False)
+
+print("\nSaved access point counts:")
+print(counts_output)
+
+print("\nSummary:")
+print("Total parks with access points:", counts[park_id_field].nunique())
+print("Total raw access points:", len(access_points))
 
 print("\nDone.")
+
+
+
+

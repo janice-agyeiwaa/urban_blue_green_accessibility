@@ -11,6 +11,7 @@ cache/
 # Data - do not commit large/private project data
 data/raw/
 data/interim/
+archive
 
 
 
@@ -24,3 +25,6 @@ data/interim/
 Thumbs.db
 desktop.ini
 
+
+
+Add-Content .gitignore "`ndata/processed/reach/walktime_polygons_5_10_20_30min.gpkg"

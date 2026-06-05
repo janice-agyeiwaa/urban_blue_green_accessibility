@@ -1,0 +1,119 @@
+park_num,PARK_NAME,MUNI,access_point_count,bus_stops_05min,bus_stops_10min,bus_stops_20min,bus_stops_30min
+2,Drummond Walk Dog off leash trail,Burnaby,15,2,5,7,11
+6,Burnaby Fraser Foreshore Park,Burnaby,33,10,19,47,104
+7,Deer lake (lakefront),Burnaby,24,8,28,79,162
+8,Burnaby Lake,Burnaby,28,6,21,93,222
+10,Kings Mill Walk Park,North Vancouver - City,7,2,2,60,110
+11,Waterfront Park,North Vancouver - City,7,19,36,77,125
+12,Lynnmouth Park (riverfront),North Vancouver - City,14,10,27,64,118
+13,Spanish Banks Beach Park and Extension,Vancouver,26,3,5,29,68
+14,Locarno Beach Park,Vancouver,12,6,12,35,60
+15,Jericho Beach Park,Vancouver,13,1,15,54,100
+16,Kitsilano Beach Park,Vancouver,20,8,20,63,166
+17,Sunset Beach Park,Vancouver,26,9,33,135,264
+18,English Bay Beach Park,Vancouver,40,19,35,109,220
+21,John Hendry (Trout Lake) Park,Vancouver,20,7,29,130,280
+22,Don Roberts Park,Coquitlam,1,0,8,16,27
+24,Maquabeak Park,Coquitlam,6,0,2,11,32
+25,Coquitlam River Park,Coquitlam,28,12,37,111,238
+26,Captain's Cove Park,Delta,8,5,24,39,66
+31,Fred Gingell Park,Delta,2,4,8,34,53
+32,Panorama Park,North Vancouver - District,10,3,5,11,36
+33,Lowry Lane Waterfront Park,North Vancouver - District,1,0,8,25,41
+35,Deep Cove’s Parkside Beach,North Vancouver - District,2,0,5,11,31
+36,Seylynn Park,North Vancouver - District,19,7,27,66,114
+37,Cates Park,North Vancouver - District,19,4,10,25,44
+38,Harbourview Park (riverfront),North Vancouver - District,4,2,8,32,82
+39,Bridgman Park,North Vancouver - District,10,9,24,67,119
+40,Brookswood Pond,"Langley - Township
+",8,0,8,29,53
+42,Emmeline Mohun Park (riverfro,Maple Ridge,1,0,3,15,47
+43,Port Haney Wharf,Maple Ridge,1,7,21,69,101
+44,"Pacific Spirit Regional Park (Acadia, Tower, and Wreck Beaches combined)",Metro Vancouver,6,2,8,45,59
+46,Pitt River Regional Greenway at Harris Rd & fraser Way,Metro Vancouver,9,0,2,8,51
+49,Kanaka Creek Regional Park (riverfront) 1,Metro Vancouver,16,13,29,72,155
+50,Sapperton Landing Park,New Westminster,19,2,21,80,167
+53,Quayside Park,New Westminster,4,4,5,47,105
+54,Waterfront Esplanade and Park,New Westminster,8,13,23,62,124
+55,Westminster Pier Park,New Westminster,3,13,34,77,139
+56,Citadel Landing & Traboulay Trail,Port Coquitlam,20,6,16,36,72
+57,Dominion Park,Port Coquitlam,2,0,8,15,36
+58,Lions Park,Port Coquitlam,8,13,40,103,203
+59,Shaughnessy Park,Port Coquitlam,17,16,30,113,242
+61,Rocky  Point Park,"Port Moody
+",17,14,49,109,166
+62,Old Orchard Park,"Port Moody
+",5,4,11,49,107
+63,Old Mill Site Park,"Port Moody
+",6,6,10,69,141
+64,Terra Nova Park 1,Richmond,21,0,2,12,24
+65,Tait Waterfront,Richmond,8,0,2,48,113
+67,Imperial Landing Park,Richmond,15,8,21,60,101
+68,North Arm Dyke (riverfront),Richmond,9,0,18,52,137
+70,Crescent Beach 1,Surrey,18,4,7,27,46
+72,Horseshoe Bay Park,West Vancouver,9,5,11,15,19
+73,Centennial Seawalk,West Vancouver,13,17,34,90,143
+74,West Bay Park,West Vancouver,2,5,10,33,58
+75,Erwin Park,West Vancouver,1,2,5,23,42
+76,Caulfield Park 1,West Vancouver,6,3,13,27,50
+77,Gulf Beach Park,West Vancouver,1,3,8,13,25
+78,Eagle Harbour Beach Park,West Vancouver,3,0,5,10,21
+79,Larson Bay Park,West Vancouver,2,0,4,17,23
+80,Bellevue Ave Park,West Vancouver,1,8,19,46,94
+82,Stearman Beach,West Vancouver,1,3,8,24,47
+83,Parthenon Park (aka Balmy Beach),West Vancouver,1,2,4,13,22
+84,Whytecliff Park 1,West Vancouver,7,0,0,9,17
+85,Altamont Beach Park,West Vancouver,3,4,14,43,66
+86,Sandy Cove Park,West Vancouver,1,8,11,24,50
+87,Kew Beach Park,West Vancouver,1,2,6,13,21
+88,Garrow Bay Park,West Vancouver,1,1,8,17,19
+89,Citrus Park,West Vancouver,3,0,2,3,5
+90,Dundarave Park,West Vancouver,16,8,18,60,107
+91,Ambleside Park 1,West Vancouver,34,10,29,74,123
+93,Memorial Park (including Totem Park parcel),White Rock,37,30,51,121,171
+97,Maplewood Farm,North Vancouver - District,20,11,17,60,110
+98,Sutcliffe Park,Vancouver,12,9,25,118,269
+99,Gladstone-Riverside Park,Vancouver,6,5,11,42,91
+100,Kinross Corridor – South,Vancouver,3,0,6,29,77
+101,New Brighton Park,Vancouver,7,0,4,26,94
+102,David Lam Park,Vancouver,19,13,31,126,328
+103,Coopers' Park,Vancouver,23,7,36,207,362
+104,Creekside Park,Vancouver,16,17,53,206,364
+105,Riverfront Park,Vancouver,8,5,10,37,99
+106,Deering Island Park,Vancouver,2,0,0,0,24
+108,Charleson Park,Vancouver,15,5,25,109,301
+110,Hadden Park,Vancouver,6,0,6,35,147
+111,Vanier Park,Vancouver,9,0,3,77,206
+112,George Wainborn Park,Vancouver,13,7,32,130,306
+113,Habitat Island Park,Vancouver,7,1,14,133,336
+114,CRAB Park at Portside,Vancouver,6,2,33,165,256
+115,Volunteer Park,Vancouver,1,6,17,57,108
+116,LYNN CANYON PARK,North Vancouver - District,14,7,32,77,144
+118,Maple Ridge Park,Maple Ridge,8,9,13,31,47
+119,Galette Park,Coquitlam,2,0,0,9,37
+120,Town Centre Park,Coquitlam,25,19,43,107,187
+121,Como Lake Park,Coquitlam,15,6,24,71,145
+122,Oxley Street Park,West Vancouver,1,3,8,28,52
+123,Latimer Park,Surrey,12,4,7,18,33
+125,Seymour River Heritage Park,North Vancouver - District,3,1,9,53,108
+126,Capilano River Regional Park,Metro Vancouver,11,6,18,71,145
+127,Klee Wyck Park - DNV,North Vancouver - District,1,1,5,38,110
+128,Klee Wyck Park - DWV,West Vancouver,1,1,7,46,123
+129,Cross's Cabins,Maple Ridge,6,1,2,13,20
+130,Davidson's Pool,Maple Ridge,1,0,0,11,28
+131,Coquitlam River Greenway and Natural Areas,Coquitlam,2,4,9,45,96
+132,Hockaday Park,Coquitlam,2,0,2,15,53
+134,Marina Park,Langley - Township,2,0,3,12,18
+135,Bedford Channel Landing,Langley - Township,7,0,0,8,16
+136,Westwood Park,Port Coquitlam,11,8,23,112,238
+137,Klootchman Park,West Vancouver,1,3,8,15,28
+138,John Lawson Park,West Vancouver,8,9,19,61,121
+139,Elgin Heritage Park,Surrey,4,2,8,14,28
+140,National Park,Canada - federal,1,0,2,10,16
+141,Deep Cove Park,North Vancouver - District,13,4,5,12,38
+142,Strathcona Park,North Vancouver - District,1,0,0,18,39
+143,Hume Park,New Westminster,11,3,25,83,173
+144,Park Site on South East False Creek (Hinge Park),Vancouver,13,1,17,126,329
+145,"Stanley Park (Seawall, Second Beach, Third Beach)",Vancouver,99,1,12,43,111
+146,Lost Lagoon,Vancouver,30,8,18,53,158
+147,Beaver Lake,Vancouver,12,0,3,11,36
