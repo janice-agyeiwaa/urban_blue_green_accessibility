@@ -37,9 +37,9 @@ The Avery-style metric measures how much of the park boundary is shoreline-facin
 
 This layer appears to represent the line where the park land buffer intersects or contacts the water/shoreline. Comparisons with Avery’s values suggest that this is the shoreline layer used in Avery’s haptic calculation.
 
-### DSM
+### DTM
 
-* Source raster: `data/raw/dsm.tif`
+* Source raster: `data/raw/dtm.tif`
 * Used to derive slope for the terrain-based haptic access proxy.
 
 ---
@@ -69,7 +69,7 @@ This metric is best interpreted as a shoreline exposure or shoreline contact mea
 
 ## Script 1
 
-* `scripts/haptic/01_calculate_avery_shoreline_perimeter_ratio.py`
+* `scripts/accessibility_analysis/upstream/haptic/01_calculate_avery_shoreline_perimeter_ratio.py`
 
 ## Script 1 Output
 
@@ -101,7 +101,7 @@ Where:
 
 * `shoreline_length_m` is the total shoreline/contact length for the park.
 * `gentle_shoreline_length_m` is the length of shoreline segments where the nearby land-side terrain is classified as gentle.
-* A shoreline segment is classified as gentle if the mean DSM-derived slope in its land-side buffer is less than or equal to the chosen slope threshold.
+* A shoreline segment is classified as gentle if the mean DTM-derived slope in its land-side buffer is less than or equal to the chosen slope threshold.
 
 This metric estimates the proportion of shoreline that is likely to be physically approachable from the park side.
 
@@ -117,7 +117,7 @@ For each park:
 2. Split the shoreline into 20 m segments.
 3. Create a 10 m buffer around each shoreline segment.
 4. Intersect the segment buffer with the park land buffer to approximate the land-side area beside the shoreline.
-5. Derive slope from the DSM.
+5. Derive slope from the DTM.
 6. Calculate mean slope within each shoreline segment’s land-side buffer.
 7. Classify each shoreline segment as gentle or steep/unknown using the slope threshold.
 8. Sum gentle shoreline length by park.
@@ -150,7 +150,7 @@ This threshold is used as a practical project rule. Published slope classificati
 
 ## Script 2
 
-* `scripts/haptic/02_calculate_terrain_based_haptic_proxy.py`
+* `scripts/accessibility_analysis/upstream/haptic/02_calculate_terrain_based_haptic_proxy.py`
 
 ## Script 2 Outputs
 

@@ -36,7 +36,7 @@ The reach workflow identifies candidate physical access points for each waterfro
 
 ## Script
 
-- `scripts/reach/01_create_candidate_access_points.py`
+- `scripts/accessibility_analysis/upstream/reach/01_create_candidate_access_points.py`
 
 ## Output Files
 

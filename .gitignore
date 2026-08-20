@@ -8,10 +8,22 @@ venv/
 cache/
 *.gdb
 
-# Data - do not commit large/private project data
-data/raw/
-data/interim/
-archive
+# Local data and generated audit artifacts (never commit)
+/data/
+/artifacts/
+/archive/
+/deliverables/
+
+# Private working documents
+/Methods and Results.docx
+/Methods and Results 2.0.docx
+/outputs/mapbox/
+
+# Local project-management and supervisor-review notes
+/docs/accessibility_cleanup_log.md
+/docs/accessibility_methods_results_audit.md
+/docs/accessibility_results_update_for_asim.md
+/docs/repository_structure_recommendation.md
 
 
 
@@ -27,4 +39,9 @@ desktop.ini
 
 
 
-Add-Content .gitignore "`ndata/processed/reach/walktime_polygons_5_10_20_30min.gpkg"
+.Rproj.user
+.positai
+
+# Microsoft Office temporary lock files
+~$*.docx
+~$*.xlsx

@@ -1,0 +1,61 @@
+outcome,term,term_label,baseline_family,baseline_N,baseline_beta_SE,baseline_p,controlled_family,controlled_N,controlled_beta_SE,controlled_p
+pedestrian,(Intercept),(Intercept),SAR_lag,105,-0.025 (0.081),0.7554135242981248,SAR_lag,105,-0.042 (0.163),0.7978613384119893
+pedestrian,z_shelter,Principal accommodation expenditure,SAR_lag,105,-0.264* (0.106),0.012813246500186448,SAR_lag,105,-0.283** (0.102),0.0052779332830761305
+pedestrian,z_low_income,Low-income residents (%),SAR_lag,105,0.012 (0.107),0.9078476900541463,SAR_lag,105,0.082 (0.107),0.44354557603626943
+pedestrian,z_bachelors,Bachelor's degree or higher (%),SAR_lag,105,0.308** (0.107),0.0037860915339316126,SAR_lag,105,0.152 (0.127),0.23033907846602797
+pedestrian,z_visible_minority,Visible-minority residents (%),SAR_lag,105,-0.084 (0.090),0.3496016871352481,SAR_lag,105,-0.001 (0.103),0.988604133818545
+pedestrian,z_indigenous,Indigenous identity residents (%),SAR_lag,105,-0.007 (0.103),0.9439559345093056,SAR_lag,105,-0.016 (0.099),0.8732275962792506
+pedestrian,site_typecoastal waterfront without beach,Coastal waterfront without beach (vs beach),NA,NA,NA,NA,SAR_lag,105,0.399 (0.229),0.08162678659947598
+pedestrian,site_typelakefront,Lakefront (vs beach),NA,NA,NA,NA,SAR_lag,105,0.023 (0.393),0.9535692128880806
+pedestrian,site_typeriverfront,Riverfront (vs beach),NA,NA,NA,NA,SAR_lag,105,-0.155 (0.263),0.5561080983643629
+pedestrian,z_log_site_area,Log land-buffer area,NA,NA,NA,NA,SAR_lag,105,-0.273** (0.088),0.0018446054798775258
+transit,(Intercept),(Intercept),SAR_error,105,-0.039 (0.127),0.7611845413866591,SAR_error,105,-0.110 (0.191),0.5639048678320067
+transit,z_shelter,Principal accommodation expenditure,SAR_error,105,-0.209 (0.111),0.058542162605180303,SAR_error,105,-0.222* (0.104),0.032799217500034006
+transit,z_low_income,Low-income residents (%),SAR_error,105,0.340** (0.105),0.0012433787080607939,SAR_error,105,0.300** (0.102),0.0032336665686700794
+transit,z_bachelors,Bachelor's degree or higher (%),SAR_error,105,-0.040 (0.117),0.7308454677383487,SAR_error,105,-0.014 (0.132),0.913778873713446
+transit,z_visible_minority,Visible-minority residents (%),SAR_error,105,0.055 (0.102),0.5917212483131558,SAR_error,105,0.000 (0.108),0.9970020082951785
+transit,z_indigenous,Indigenous identity residents (%),SAR_error,105,-0.023 (0.107),0.8268773357486514,SAR_error,105,0.005 (0.101),0.9623656815720807
+transit,site_typecoastal waterfront without beach,Coastal waterfront without beach (vs beach),NA,NA,NA,NA,SAR_error,105,0.294 (0.231),0.20270069351597053
+transit,site_typelakefront,Lakefront (vs beach),NA,NA,NA,NA,SAR_error,105,0.276 (0.386),0.4749782433380434
+transit,site_typeriverfront,Riverfront (vs beach),NA,NA,NA,NA,SAR_error,105,-0.052 (0.263),0.8422289641801395
+transit,z_log_site_area,Log land-buffer area,NA,NA,NA,NA,SAR_error,105,0.283** (0.089),0.0014545508067240753
+physical,(Intercept),(Intercept),SAR_error,105,-0.076 (0.147),0.6025857887947745,SAR_error,105,-0.082 (0.189),0.6640986130491215
+physical,z_shelter,Principal accommodation expenditure,SAR_error,105,-0.283** (0.104),0.0064719667685171345,SAR_error,105,-0.285** (0.101),0.004923185066400437
+physical,z_low_income,Low-income residents (%),SAR_error,105,0.280** (0.098),0.004478974296783456,SAR_error,105,0.275** (0.099),0.005561043819833467
+physical,z_bachelors,Bachelor's degree or higher (%),SAR_error,105,0.124 (0.115),0.280921773417238,SAR_error,105,0.085 (0.129),0.5119425307053345
+physical,z_visible_minority,Visible-minority residents (%),SAR_error,105,-0.023 (0.099),0.8174207995062781,SAR_error,105,-0.018 (0.105),0.8677979479353313
+physical,z_indigenous,Indigenous identity residents (%),SAR_error,105,-0.035 (0.100),0.7277456184526618,SAR_error,105,-0.013 (0.098),0.8982931144040993
+physical,site_typecoastal waterfront without beach,Coastal waterfront without beach (vs beach),NA,NA,NA,NA,SAR_error,105,0.357 (0.225),0.11284730663735187
+physical,site_typelakefront,Lakefront (vs beach),NA,NA,NA,NA,SAR_error,105,0.186 (0.376),0.6203347774342189
+physical,site_typeriverfront,Riverfront (vs beach),NA,NA,NA,NA,SAR_error,105,-0.173 (0.257),0.5003361002142774
+physical,z_log_site_area,Log land-buffer area,NA,NA,NA,NA,SAR_error,105,0.078 (0.087),0.3664331503074434
+visual,(Intercept),(Intercept),SAR_lag,105,0.029 (0.089),0.7474529859257357,SAR_lag,105,0.626*** (0.153),4.265107289125325e-5
+visual,z_shelter,Principal accommodation expenditure,SAR_lag,105,0.141 (0.116),0.22255077791913047,SAR_lag,105,0.088 (0.095),0.3571900916163582
+visual,z_low_income,Low-income residents (%),SAR_lag,105,0.153 (0.114),0.17895444324192034,SAR_lag,105,-0.068 (0.099),0.49089300507548783
+visual,z_bachelors,Bachelor's degree or higher (%),SAR_lag,105,0.083 (0.112),0.45981124016421315,SAR_lag,105,-0.031 (0.117),0.7925361622007483
+visual,z_visible_minority,Visible-minority residents (%),SAR_lag,105,-0.056 (0.098),0.5655704579752863,SAR_lag,105,0.107 (0.096),0.26827545528098784
+visual,z_indigenous,Indigenous identity residents (%),SAR_lag,105,-0.020 (0.112),0.8578919243956993,SAR_lag,105,0.081 (0.094),0.38745437970025476
+visual,site_typecoastal waterfront without beach,Coastal waterfront without beach (vs beach),NA,NA,NA,NA,SAR_lag,105,-0.500* (0.214),0.019671346355198294
+visual,site_typelakefront,Lakefront (vs beach),NA,NA,NA,NA,SAR_lag,105,-0.179 (0.370),0.6280471776814749
+visual,site_typeriverfront,Riverfront (vs beach),NA,NA,NA,NA,SAR_lag,105,-1.218*** (0.248),8.648158507096326e-7
+visual,z_log_site_area,Log land-buffer area,NA,NA,NA,NA,SAR_lag,105,0.362*** (0.083),1.1703852568434314e-5
+haptic,(Intercept),(Intercept),OLS,105,-0.000 (0.098),0.9999999999999984,OLS,105,-0.141 (0.124),0.2615258771861125
+haptic,z_shelter,Principal accommodation expenditure,OLS,105,-0.042 (0.112),0.7074717358170342,OLS,105,0.020 (0.093),0.8287887358877274
+haptic,z_low_income,Low-income residents (%),OLS,105,0.154 (0.126),0.22409728775238053,OLS,105,0.016 (0.079),0.8404694788948395
+haptic,z_bachelors,Bachelor's degree or higher (%),OLS,105,-0.131 (0.141),0.35505485264612224,OLS,105,0.056 (0.120),0.644290749742871
+haptic,z_visible_minority,Visible-minority residents (%),OLS,105,0.115 (0.094),0.22087023381924262,OLS,105,-0.081 (0.082),0.32645860761778767
+haptic,z_indigenous,Indigenous identity residents (%),OLS,105,0.076 (0.109),0.4874543030432671,OLS,105,0.070 (0.104),0.5046662529625614
+haptic,site_typecoastal waterfront without beach,Coastal waterfront without beach (vs beach),NA,NA,NA,NA,OLS,105,0.157 (0.207),0.45102153502164066
+haptic,site_typelakefront,Lakefront (vs beach),NA,NA,NA,NA,OLS,105,-0.036 (0.251),0.884718156472856
+haptic,site_typeriverfront,Riverfront (vs beach),NA,NA,NA,NA,OLS,105,0.279 (0.195),0.15467580708682652
+haptic,z_log_site_area,Log land-buffer area,NA,NA,NA,NA,OLS,105,0.735*** (0.092),3.68688021770586e-12
+multidimensional,(Intercept),(Intercept),OLS,105,0.000 (0.095),0.9999999999999998,SAR_error,105,0.291 (0.155),0.0603388478063458
+multidimensional,z_shelter,Principal accommodation expenditure,OLS,105,-0.052 (0.106),0.6244706109391589,SAR_error,105,-0.072 (0.090),0.4231397330382103
+multidimensional,z_low_income,Low-income residents (%),OLS,105,0.329** (0.119),0.006943307976214468,SAR_error,105,0.131 (0.090),0.14341934248883526
+multidimensional,z_bachelors,Bachelor's degree or higher (%),OLS,105,0.113 (0.116),0.3324712190806737,SAR_error,105,0.094 (0.112),0.4025720645974782
+multidimensional,z_visible_minority,Visible-minority residents (%),OLS,105,0.014 (0.106),0.8970749084965968,SAR_error,105,0.013 (0.093),0.891097058306898
+multidimensional,z_indigenous,Indigenous identity residents (%),OLS,105,-0.013 (0.110),0.9047503923494127,SAR_error,105,0.077 (0.088),0.3799881890584562
+multidimensional,site_typecoastal waterfront without beach,Coastal waterfront without beach (vs beach),NA,NA,NA,NA,SAR_error,105,-0.008 (0.202),0.97027090338712485
+multidimensional,site_typelakefront,Lakefront (vs beach),NA,NA,NA,NA,SAR_error,105,-0.028 (0.340),0.9340256602840658
+multidimensional,site_typeriverfront,Riverfront (vs beach),NA,NA,NA,NA,SAR_error,105,-0.737** (0.230),0.001332864902157338
+multidimensional,z_log_site_area,Log land-buffer area,NA,NA,NA,NA,SAR_error,105,0.584*** (0.077),4.418687638008123e-14

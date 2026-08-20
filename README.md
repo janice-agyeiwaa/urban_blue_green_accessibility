@@ -1,38 +1,66 @@
-# Urban Blue-Green Accessibility Workflow
+# Urban blue-green accessibility
 
-This repository rebuilds accessibility workflows for the urban blue-green spaces project using Python-based spatial analysis.
+This repository contains the reproducible spatial-accessibility workflows and
+analyses for two related studies:
 
-## Current focus
+- **Paper 3:** socioeconomic patterning of pedestrian, transit, combined
+  physical, visual, haptic, and multidimensional access to 114 blue-green
+  sites;
+- **Paper 4:** Mapbox activity analysis using the validated Paper 3 site
+  measures. Its former 20-minute results are archived locally and will be
+  regenerated from the confirmed 10-minute handoff in the Paper 4 phase.
 
-The current focus is the **reach access workflow**.
+## Run Paper 3
 
-Reach access is being rebuilt from spatial inputs using:
+The main analysis defaults to the requested 10-minute catchment and evaluates
+5, 20, and 30 minutes as sensitivity analyses:
 
-- edited land buffer polygons
-- OpenStreetMap walking network data downloaded with OSMnx
-- Python spatial processing with GeoPandas and Shapely
+```powershell
+Rscript scripts/accessibility_analysis/run_all.R
+```
 
-## Data structure
+To change the main reporting catchment without editing code:
+
+```powershell
+Rscript scripts/accessibility_analysis/run_all.R --main-catchment=20 --k=6
+```
+
+Operational details and fixed analysis rules are in
+`docs/accessibility_workflow.md`; the final analytical definitions are in
+`docs/accessibility_methodology.md`.
+
+The GitHub documentation also includes `docs/reach_workflow.md`,
+`docs/viewshed_workflow.md`, `docs/haptic_workflow.md`, and
+`docs/decisions_log.md`. Internal cleanup, audit, supervisor-update, and
+repository-planning notes remain local and are Git-ignored.
+
+## Repository structure
+
 ```text
 urban_blue_green_accessibility/
   data/
     raw/
-      Park_Extraction_Project.gdb
     interim/
-      reach/
     processed/
-      reach/
-
-  scripts/
-    reach/
-      01_create_candidate_access_points.py
-      02_clean_candidate_access_points.py
-
+      accessibility_analysis/
+      paper4_handoff/
+      mapbox/
   docs/
-    reach_workflow.md
-    decision_log.md
-    archive/
-
   outputs/
-    maps/
-    tables/
+    accessibility_analysis/
+  scripts/
+    accessibility_analysis/
+      upstream/
+        census/
+        haptic/
+        reach/
+        viewshed/
+    mapbox/                       # Paper 4
+```
+
+The entire `data/` folder is local-only and excluded from Git. Reproducibility
+diagnostics are written to ignored `artifacts/`; private Word deliverables are
+written to ignored `deliverables/`. Only scripts, documentation, and the
+presentation-ready tables and PNG figures in `outputs/accessibility_analysis/` are intended
+for GitHub. Paper 3 maps will be prepared manually in ArcGIS and inserted into
+the private Word draft; no generated map is committed.
