@@ -89,13 +89,74 @@ pair_stats <- pair_data %>%
     facet_label = paste(pair, annotation, sep = "\n")
   )
 
-extreme_sites <- pair_data %>%
+quadrant_levels <- c("High-high", "High-low", "Low-high", "Low-low")
+quadrant_code_colours <- c(
+  "HH" = "#5DA5DA",
+  "LL" = "#9AD9CF",
+  "LH" = "#E85AAD",
+  "HL" = "#F28E2B"
+)
+
+# Median splits are descriptive, not inferential. For each ordered pair, the
+# first label refers to the horizontal dimension and the second to the vertical
+# dimension. Values equal to a sample median are classified as high.
+pair_classifications <- pair_data %>%
+  left_join(
+    pair_stats %>% select(pair, x_median, y_median),
+    by = "pair"
+  ) %>%
   group_by(pair) %>%
   mutate(
     x_z = as.numeric(scale(x)), y_z = as.numeric(scale(y)),
-    absolute_standardized_difference = abs(x_z - y_z)
+    absolute_standardized_difference = abs(x_z - y_z),
+    x_level = case_when(
+      is.na(x) ~ NA_character_,
+      x >= x_median ~ "High",
+      TRUE ~ "Low"
+    ),
+    y_level = case_when(
+      is.na(y) ~ NA_character_,
+      y >= y_median ~ "High",
+      TRUE ~ "Low"
+    ),
+    quadrant_code = case_when(
+      x_level == "High" & y_level == "High" ~ "HH",
+      x_level == "High" & y_level == "Low" ~ "HL",
+      x_level == "Low" & y_level == "High" ~ "LH",
+      x_level == "Low" & y_level == "Low" ~ "LL",
+      TRUE ~ NA_character_
+    ),
+    quadrant = case_when(
+      quadrant_code == "HH" ~ "High-high",
+      quadrant_code == "HL" ~ "High-low",
+      quadrant_code == "LH" ~ "Low-high",
+      quadrant_code == "LL" ~ "Low-low",
+      TRUE ~ NA_character_
+    ),
+    divergence_rank = row_number(desc(absolute_standardized_difference)),
+    is_top5_divergence = divergence_rank <= 5
   ) %>%
+  ungroup() %>%
+  mutate(quadrant = factor(quadrant, levels = quadrant_levels))
+
+quadrant_summary <- pair_classifications %>%
+  filter(!is.na(quadrant)) %>%
+  count(
+    pair, x_dimension, y_dimension, quadrant_code, quadrant,
+    name = "site_count"
+  ) %>%
+  group_by(pair) %>%
+  mutate(
+    pair_n = sum(site_count),
+    percent = 100 * site_count / pair_n
+  ) %>%
+  ungroup() %>%
+  arrange(pair, quadrant)
+
+extreme_sites <- pair_classifications %>%
+  filter(!is.na(absolute_standardized_difference)) %>%
   arrange(pair, desc(absolute_standardized_difference)) %>%
+  group_by(pair) %>%
   slice_head(n = 5) %>%
   mutate(rank = row_number()) %>%
   ungroup()
@@ -122,12 +183,39 @@ write_csv(
     paste0("tableS1_", main_catchment, "min_pairwise_extreme_sites.csv")
   )
 )
+write_csv(
+  quadrant_summary %>%
+    mutate(quadrant = as.character(quadrant)) %>%
+    select(
+      pair, x_dimension, y_dimension, quadrant_code, quadrant,
+      site_count, pair_n, percent
+    ),
+  file.path(
+    table_dir,
+    paste0("table5b_", main_catchment, "min_quadrant_summary.csv")
+  )
+)
+write_csv(
+  pair_classifications %>%
+    mutate(quadrant = as.character(quadrant)) %>%
+    arrange(pair, park_num) %>%
+    select(
+      pair, park_num, site_name, x_dimension, y_dimension, x, y,
+      x_median, y_median, x_level, y_level, quadrant_code, quadrant,
+      x_z, y_z, absolute_standardized_difference, divergence_rank,
+      is_top5_divergence
+    ),
+  file.path(
+    table_dir,
+    paste0("tableS4_", main_catchment, "min_quadrant_classifications.csv")
+  )
+)
 
 pair_plot_data <- pair_data %>%
   left_join(pair_stats %>% select(pair, facet_label), by = "pair")
 
 pair_plot <- ggplot(pair_plot_data, aes(x, y)) +
-  geom_point(alpha = 0.62, size = 2.0, colour = "#256b63") +
+  geom_point(alpha = 0.68, size = 2.0, colour = "#256B63") +
   geom_vline(
     data = pair_stats, aes(xintercept = x_median),
     linetype = "dashed", linewidth = 0.45, colour = "grey45"
@@ -139,17 +227,17 @@ pair_plot <- ggplot(pair_plot_data, aes(x, y)) +
   facet_wrap(~ facet_label, nrow = 1, scales = "free") +
   labs(
     title = paste0("Pairwise accessibility dimensions — ", main_catchment, "-minute specification"),
-    subtitle = "Dashed lines are medians; divergent sites are listed in the companion table",
+    subtitle = "Pearson and Spearman statistics are shown above each panel",
     x = "Horizontal-dimension score", y = "Vertical-dimension score",
-    caption = "Scores are site-level accessibility measures; all 114 sites are shown."
+    caption = "Dashed lines show sample medians; all 114 sites are shown."
   ) +
   theme_minimal(base_size = 12) +
   theme(
     plot.title = element_text(face = "bold", size = 16),
     strip.text = element_text(face = "bold", lineheight = 1.05),
     panel.grid.major.x = element_blank(),
-    panel.grid.minor = element_blank(),
-    legend.position = "none"
+    panel.grid.major.y = element_line(colour = "grey88", linewidth = 0.35),
+    panel.grid.minor = element_blank()
   )
 
 ggsave(
@@ -157,8 +245,65 @@ ggsave(
     figure_dir,
     paste0("figure2_", main_catchment, "min_pairwise_accessibility.png")
   ),
-  pair_plot, width = 13.5, height = 5.1, dpi = 320, bg = "white"
+  pair_plot, width = 13.5, height = 5.2, dpi = 320, bg = "white"
 )
+
+quadrant_figure_path <- file.path(
+  figure_dir,
+  paste0("figure2b_", main_catchment, "min_quadrant_classification.png")
+)
+png(quadrant_figure_path, width = 13.5, height = 5.2, units = "in", res = 320)
+par(
+  mfrow = c(1, 3), mar = c(4.3, 4.3, 3.0, 1.0),
+  oma = c(1.5, 0, 2.2, 0), mgp = c(2.5, 0.8, 0),
+  family = "sans"
+)
+quadrant_legend_order <- c("HH", "LL", "LH", "HL")
+for (spec in pairs) {
+  panel_data <- pair_classifications %>% filter(pair == spec$pair)
+  panel_counts <- setNames(
+    quadrant_summary$site_count[quadrant_summary$pair == spec$pair],
+    quadrant_summary$quadrant_code[quadrant_summary$pair == spec$pair]
+  )
+  x_padding <- 0.05 * diff(range(panel_data$x, na.rm = TRUE))
+  y_padding <- 0.05 * diff(range(panel_data$y, na.rm = TRUE))
+  plot(
+    panel_data$x, panel_data$y,
+    pch = 16, cex = 0.82,
+    col = unname(quadrant_code_colours[panel_data$quadrant_code]),
+    xlab = paste0(spec$x_label, " score"),
+    ylab = paste0(spec$y_label, " score"),
+    main = paste0(spec$pair, " (median split)"),
+    xlim = range(panel_data$x, na.rm = TRUE) + c(-x_padding, x_padding),
+    ylim = range(panel_data$y, na.rm = TRUE) + c(-y_padding, y_padding),
+    bty = "o"
+  )
+  abline(v = unique(panel_data$x_median), lty = 2, lwd = 1.1, col = "grey30")
+  abline(h = unique(panel_data$y_median), lty = 2, lwd = 1.1, col = "grey30")
+  legend(
+    "topright",
+    legend = sprintf(
+      "%s (n=%d)",
+      quadrant_legend_order,
+      as.integer(panel_counts[quadrant_legend_order])
+    ),
+    col = unname(quadrant_code_colours[quadrant_legend_order]),
+    pch = 16, pt.cex = 0.85, cex = 0.75,
+    title = "Quadrant", bg = "white", box.col = "grey70"
+  )
+}
+mtext(
+  paste0(
+    "Median-based accessibility quadrants — ",
+    main_catchment, "-minute specification"
+  ),
+  outer = TRUE, side = 3, line = 0.6, font = 2, cex = 1.25
+)
+mtext(
+  "Codes follow horizontal-vertical order; values equal to a median are high.",
+  outer = TRUE, side = 1, line = 0.1, cex = 0.76
+)
+dev.off()
 # Spider profiles provide the requested case-level view of the sites with the
 # largest disagreements among physical, visual, and haptic access.
 profile_sites <- extreme_sites %>%

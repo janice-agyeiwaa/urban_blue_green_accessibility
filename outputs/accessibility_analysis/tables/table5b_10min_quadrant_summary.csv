@@ -1,0 +1,13 @@
+pair,x_dimension,y_dimension,quadrant_code,quadrant,site_count,pair_n,percent
+Physical vs haptic,Physical access,Haptic access,HH,High-high,34,114,29.82456140350877
+Physical vs haptic,Physical access,Haptic access,HL,High-low,23,114,20.17543859649123
+Physical vs haptic,Physical access,Haptic access,LH,Low-high,23,114,20.17543859649123
+Physical vs haptic,Physical access,Haptic access,LL,Low-low,34,114,29.82456140350877
+Physical vs visual,Physical access,Visual access,HH,High-high,27,114,23.68421052631579
+Physical vs visual,Physical access,Visual access,HL,High-low,30,114,26.31578947368421
+Physical vs visual,Physical access,Visual access,LH,Low-high,30,114,26.31578947368421
+Physical vs visual,Physical access,Visual access,LL,Low-low,27,114,23.68421052631579
+Visual vs haptic,Visual access,Haptic access,HH,High-high,35,114,30.70175438596491
+Visual vs haptic,Visual access,Haptic access,HL,High-low,22,114,19.29824561403509
+Visual vs haptic,Visual access,Haptic access,LH,Low-high,22,114,19.29824561403509
+Visual vs haptic,Visual access,Haptic access,LL,Low-low,35,114,30.70175438596491

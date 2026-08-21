@@ -59,6 +59,16 @@ OUTCOME_LABEL = {
 }
 
 
+def requested_output_file() -> Path:
+    """Return an optional --output path, resolved from the project root."""
+    prefix = "--output="
+    value = next((arg[len(prefix):] for arg in sys.argv[1:] if arg.startswith(prefix)), None)
+    if not value:
+        return OUTPUT_FILE
+    path = Path(value)
+    return path if path.is_absolute() else ROOT / path
+
+
 def read_csv(path: Path) -> list[dict[str, str]]:
     with path.open("r", encoding="utf-8-sig", newline="") as handle:
         return list(csv.DictReader(handle))
@@ -385,7 +395,7 @@ def add_executive_summary(document: Document, sample_rows: list[dict[str, str]])
             "All models use row-standardized seven-nearest-neighbour spatial weights, the smallest common k that connects every catchment sample.",
             "Baseline and controlled results are reported for pedestrian, transit, combined physical, visual, haptic, and multidimensional accessibility.",
             "Controlled model families are rechecked; the final 10-minute multidimensional model is SAR error because controlled OLS retained residual spatial autocorrelation.",
-            "Asim’s requested pairwise correlations, median reference lines, divergent cases, spider profiles, and a ternary composition plot are regenerated from the current 114-site data.",
+            "Asim’s requested pairwise correlations, median reference lines, quadrant classifications, divergent cases, spider profiles, and a ternary composition plot are regenerated from the current 114-site data.",
             "Five-, 20-, and 30-minute models are retained only as catchment sensitivity analyses.",
         ],
     )
@@ -562,10 +572,21 @@ def add_methods(
     add_heading(document, "4.2.6 Pairwise and extreme-site analyses", 2)
     document.add_paragraph(
         "Physical, visual, and haptic scores are compared across all 114 sites using Pearson and Spearman "
-        "correlations, exact sample sizes, and vertical/horizontal median reference lines. Standardized "
-        "dimension differences identify divergent sites for labelled scatterplots and spider profiles. "
+        "correlations, exact sample sizes, and vertical/horizontal median reference lines. Each ordered "
+        "pair is also classified as high-high, high-low, low-high, or low-low using the pair-specific "
+        "sample medians; values equal to a median are classified as high. These quadrants are descriptive "
+        "groups, not statistical clusters. With 114 complete sites and no median ties, each dimension "
+        "contains 57 high and 57 low sites; this balance mechanically makes HH equal LL and HL equal LH "
+        "within each pair. Standardized dimension differences identify divergent sites "
+        "for labelled scatterplots and spider profiles. "
         "A ternary plot displays each site’s relative physical–visual–haptic composition after normalizing "
         "the three non-negative scaled scores to shares; it describes composition, not total accessibility."
+    )
+    document.add_paragraph(
+        "The pairwise correlation figure uses single-colour points, dashed median lines, and light "
+        "horizontal background gridlines. The "
+        "quadrant classifications are presented separately using quadrant-coloured points, dashed median "
+        "lines, no background grid, and an in-panel count legend for each dimension pair."
     )
     document.add_paragraph(
         "The correlation/median, spider, and ternary elements requested in Asim’s shared file have been "
@@ -599,6 +620,7 @@ def add_results(
     regression: list[dict[str, str]],
     controls: list[dict[str, str]],
     correlations: list[dict[str, str]],
+    quadrant_summary: list[dict[str, str]],
     fdr: list[dict[str, str]],
     diagnostics: list[dict[str, str]],
 ) -> None:
@@ -666,7 +688,58 @@ def add_results(
         document,
         FIGURE_DIR / "figure2_10min_pairwise_accessibility.png",
         7.0,
-        "Figure 2. Pairwise accessibility scatterplots (n = 114). Dashed lines show sample medians; labels identify the largest standardized divergences for each pair.",
+        "Figure 2. Pairwise accessibility scatterplots (n = 114). Pearson and Spearman statistics are shown for each dimension pair, and dashed lines show sample medians; the companion table identifies the largest standardized divergences.",
+    )
+    pair_order = ["Physical vs visual", "Physical vs haptic", "Visual vs haptic"]
+    quadrant_order = {"HH": 0, "HL": 1, "LH": 2, "LL": 3}
+    ordered_quadrants = sorted(
+        quadrant_summary,
+        key=lambda row: (
+            pair_order.index(row["pair"]),
+            quadrant_order[row["quadrant_code"]],
+        ),
+    )
+    contrast_phrases = []
+    for pair in pair_order:
+        pair_rows = [row for row in ordered_quadrants if row["pair"] == pair]
+        contrast_n = sum(
+            int(row["site_count"])
+            for row in pair_rows
+            if row["quadrant_code"] in {"HL", "LH"}
+        )
+        pair_n = int(pair_rows[0]["pair_n"])
+        contrast_phrases.append(
+            f"{pair}: {contrast_n}/{pair_n} ({100 * contrast_n / pair_n:.1f}%)"
+        )
+    document.add_paragraph(
+        "The median splits provide a transparent descriptive classification of cross-dimensional "
+        "contrast. The combined high-low and low-high shares are "
+        + "; ".join(contrast_phrases)
+        + ". Because each dimension is split into 57 high and 57 low sites, paired quadrant counts are "
+        "symmetric by construction. These proportions describe relative site profiles and do not test "
+        "agreement or causality."
+    )
+    add_table(
+        document,
+        ["Pair", "Code", "Quadrant", "Sites", "% of pair"],
+        [
+            [
+                row["pair"],
+                row["quadrant_code"],
+                row["quadrant"],
+                row["site_count"],
+                f"{float(row['percent']):.1f}",
+            ]
+            for row in ordered_quadrants
+        ],
+        "Table 2b. Median-based quadrant distribution for each accessibility-dimension pair",
+        font_size=7.8,
+    )
+    add_picture(
+        document,
+        FIGURE_DIR / "figure2b_10min_quadrant_classification.png",
+        6.9,
+        "Figure 2b. Median-based quadrant classifications. Dashed lines show sample medians; in-panel legends report quadrant counts. Codes follow horizontal–vertical order.",
     )
     add_picture(
         document,
@@ -955,6 +1028,7 @@ def add_appendices(
 
 
 def build_document() -> Path:
+    output_file = requested_output_file()
     required = [
         DATA_FILE,
         TABLE_DIR / "table1_sample_sizes_by_catchment.csv",
@@ -962,6 +1036,7 @@ def build_document() -> Path:
         TABLE_DIR / "table3_10min_site_controls.csv",
         TABLE_DIR / "table4_controlled_catchment_sensitivity.csv",
         TABLE_DIR / "table5_10min_pairwise_correlations.csv",
+        TABLE_DIR / "table5b_10min_quadrant_summary.csv",
         TABLE_DIR / "table6_10min_multiple_testing.csv",
         TABLE_DIR / "table7_10min_model_diagnostics.csv",
     ]
@@ -975,6 +1050,7 @@ def build_document() -> Path:
     controls = read_csv(TABLE_DIR / "table3_10min_site_controls.csv")
     sensitivity = read_csv(TABLE_DIR / "table4_controlled_catchment_sensitivity.csv")
     correlations = read_csv(TABLE_DIR / "table5_10min_pairwise_correlations.csv")
+    quadrant_summary = read_csv(TABLE_DIR / "table5b_10min_quadrant_summary.csv")
     fdr = read_csv(TABLE_DIR / "table6_10min_multiple_testing.csv")
     diagnostics = read_csv(TABLE_DIR / "table7_10min_model_diagnostics.csv")
 
@@ -988,12 +1064,15 @@ def build_document() -> Path:
     add_title_page(document)
     add_executive_summary(document, samples)
     add_methods(document, analysis)
-    add_results(document, samples, regression, controls, correlations, fdr, diagnostics)
+    add_results(
+        document, samples, regression, controls, correlations,
+        quadrant_summary, fdr, diagnostics
+    )
     add_appendices(document, analysis, sensitivity)
 
-    DELIVERABLE_DIR.mkdir(parents=True, exist_ok=True)
-    document.save(OUTPUT_FILE)
-    return OUTPUT_FILE
+    output_file.parent.mkdir(parents=True, exist_ok=True)
+    document.save(output_file)
+    return output_file
 
 
 if __name__ == "__main__":

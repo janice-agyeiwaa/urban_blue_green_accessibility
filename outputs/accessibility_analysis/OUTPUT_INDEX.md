@@ -17,18 +17,24 @@ Rscript scripts/accessibility_analysis/run_all.R
 - `table3_10min_site_controls.csv`
 - `table4_controlled_catchment_sensitivity.csv`
 - `table5_10min_pairwise_correlations.csv`
+- `table5b_10min_quadrant_summary.csv`
 - `table6_10min_multiple_testing.csv`
 - `table7_10min_model_diagnostics.csv`
 - `tableS1`–`tableS3`: documented extreme-site and composition supplements
+- `tableS4_10min_quadrant_classifications.csv`: site-level quadrant assignments
 
 ## Figures
 
-- `figures/figure2_10min_pairwise_accessibility.png`
+- `figures/figure2_10min_pairwise_accessibility.png`: single-colour pairwise
+  scatterplots with correlation statistics, dashed medians, and horizontal gridlines
+- `figures/figure2b_10min_quadrant_classification.png`: separate median-split
+  scatterplots with no grid and in-panel quadrant-count legends
 - `figures/figure3_10min_extreme_site_profiles.png`
 - `figures/figure4_10min_accessibility_composition.png`
 - `figures/figure5_10min_controlled_coefficients.png`
 
-The 10-minute accessibility maps will be prepared manually in ArcGIS and are
-represented by a placeholder in the private Word draft. Duplicate PDF figure
-exports are not retained. Diagnostics and raw model exports are intentionally
-written to ignored `artifacts/accessibility_analysis/` rather than this public package.
+The manually prepared 10-minute ArcGIS exports are stored under `maps/`. The
+private Word draft retains a map placeholder until the four-map layout is
+approved. Duplicate PDF figure exports are not retained. Diagnostics and raw
+model exports are intentionally written to ignored
+`artifacts/accessibility_analysis/` rather than this public package.

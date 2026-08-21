@@ -107,8 +107,11 @@ This script:
 
 This creates:
 
-- the Physical–Visual–Haptic pairwise figure with Pearson and Spearman
-  correlations, p-values, n, and median lines;
+- the single-colour Physical–Visual–Haptic pairwise figure with Pearson and
+  Spearman correlations, p-values, n, dashed median lines, and horizontal
+  background gridlines;
+- site-level and aggregate median-based quadrant tables and a presentation-ready
+  quadrant scatterplot with median lines, no grid, and in-panel count legends;
 - spider profiles for the six most divergent sites; and
 - the six-outcome controlled coefficient figure, including multidimensional
   access.
@@ -151,7 +154,10 @@ transit, viewshed, haptic, site-boundary, or site-type input changes.
 - `outputs/accessibility_analysis/tables/table4_controlled_catchment_sensitivity.csv`
 - `outputs/accessibility_analysis/tables/table6_10min_multiple_testing.csv`
 - `outputs/accessibility_analysis/tables/table7_10min_model_diagnostics.csv`
+- `outputs/accessibility_analysis/tables/table5b_10min_quadrant_summary.csv`
+- `outputs/accessibility_analysis/tables/tableS4_10min_quadrant_classifications.csv`
 - `outputs/accessibility_analysis/figures/figure2_10min_pairwise_accessibility.png`
+- `outputs/accessibility_analysis/figures/figure2b_10min_quadrant_classification.png`
 - `outputs/accessibility_analysis/figures/figure3_10min_extreme_site_profiles.png`
 - `outputs/accessibility_analysis/figures/figure4_10min_accessibility_composition.png`
 - `outputs/accessibility_analysis/figures/figure5_10min_controlled_coefficients.png`

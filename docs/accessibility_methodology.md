@@ -202,8 +202,28 @@ Physical, visual, and haptic scores are compared across all 114 sites using:
 - Pearson correlation;
 - Spearman rank correlation;
 - exact sample size;
-- vertical and horizontal median reference lines; and
+- vertical and horizontal median reference lines;
+- median-based quadrant classifications for every site and dimension pair; and
 - standardized dimension differences to identify extreme/divergent sites.
+
+The pairwise correlation figure uses single-colour points, dashed median lines,
+and light horizontal background gridlines. Quadrant classification is shown in
+a separate scatterplot: points are
+coloured by quadrant, dashed lines mark the medians, the background grid is
+removed, and each panel contains an HH/LL/LH/HL legend with site counts.
+
+For each ordered pair, the first dimension is plotted horizontally and the
+second vertically. Scores equal to or above the pair-specific sample median are
+classified as high; scores below it are classified as low. This produces four
+descriptive groups: high-high (HH), high-low (HL), low-high (LH), and low-low
+(LL). Quadrant counts and percentages summarize cross-dimensional contrast but
+are not statistical clusters or tests of significance.
+
+With 114 complete sites and no ties at the three medians, every dimension has
+57 high and 57 low sites. This balance mechanically makes HH equal LL and HL
+equal LH within each pair. Aggregate interpretation therefore emphasizes the
+combined same-side quadrants (HH + LL) versus cross-dimensional quadrants
+(HL + LH), while the site-level table identifies which parks occupy each group.
 
 These scatterplots are appropriate because the dimensions are distinct but
 comparable site scores. Bland–Altman plots are not used as a main result because
