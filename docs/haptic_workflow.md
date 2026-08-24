@@ -198,3 +198,30 @@ gentle_shoreline_ratio
 This estimates how much of the shoreline is likely to be physically approachable based on nearby land-side slope.
 
 Together, these describe both shoreline exposure and potential physical access to the shoreline.
+
+---
+
+## DTM-OSM Extension and 10-Minute Sensitivity Analysis
+
+The final exploratory proxy supplements the terrain classification with mapped
+beach/sand and barrier or access-restriction features from OpenStreetMap. A
+shoreline segment is approachable when it has gentle land-side slope or a
+mapped beach/sand feature. It is counted in the numerator only when no mapped
+barrier or access restriction affects it. Bridges are retained for review but
+are not penalized in the score.
+
+The final processed input is:
+
+* `data/processed/haptic/haptic_access_proxy_dtm_osm.csv`
+
+The reproducible comparison is:
+
+* `scripts/accessibility_analysis/05_run_haptic_sensitivity.R`
+
+It compares both haptic measures across 114 sites and repeats the controlled
+regression on the canonical 10-minute sample (N = 105) using the same predictors,
+site controls, seven-nearest-neighbour weights, and model-selection rules as the
+main Paper 3 analysis. The measures were essentially uncorrelated (Pearson
+`r = 0.028`; Spearman `rho = 0.018`), which means they should not be treated as
+interchangeable. The DTM-OSM result remains exploratory because it has not been
+field-verified and depends on the completeness of mapped features.

@@ -20,8 +20,14 @@ Rscript scripts/accessibility_analysis/run_all.R
 - `table5b_10min_quadrant_summary.csv`
 - `table6_10min_multiple_testing.csv`
 - `table7_10min_model_diagnostics.csv`
+- `table8_10min_haptic_sensitivity.csv`: controlled socioeconomic
+  coefficients for the primary and DTM-OSM haptic measures
+- `table8_10min_haptic_sensitivity_formatted.csv` and `.md`: Word-ready version
+- `table8b_10min_haptic_model_diagnostics.csv`
+- `table8c_10min_haptic_sensitivity_site_controls.csv`
 - `tableS1`–`tableS3`: documented extreme-site and composition supplements
 - `tableS4_10min_quadrant_classifications.csv`: site-level quadrant assignments
+- `tableS5_10min_haptic_measure_correlation.csv`
 
 ## Figures
 
@@ -32,6 +38,8 @@ Rscript scripts/accessibility_analysis/run_all.R
 - `figures/figure3_10min_extreme_site_profiles.png`
 - `figures/figure4_10min_accessibility_composition.png`
 - `figures/figure5_10min_controlled_coefficients.png`
+- `figures/figure6_10min_haptic_sensitivity.png`: comparison of the primary
+  shoreline-to-perimeter measure and exploratory DTM-OSM proxy
 
 The manually prepared 10-minute ArcGIS exports are stored under `maps/`. The
 private Word draft retains a map placeholder until the four-map layout is

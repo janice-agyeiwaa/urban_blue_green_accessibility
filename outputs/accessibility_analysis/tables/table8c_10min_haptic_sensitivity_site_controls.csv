@@ -1,0 +1,9 @@
+measure,measure_label,specification,family,N,k_neighbors,term,estimate,std_error,p_value,conf_low,conf_high,inference
+shoreline_perimeter,Shoreline-to-perimeter measure,controlled,OLS,105,7,site_typecoastal waterfront without beach,0.1566300079505621,0.20695391205863783,0.45102153502164066,-0.24899965968436805,0.5622596755854923,HC3 robust
+shoreline_perimeter,Shoreline-to-perimeter measure,controlled,OLS,105,7,site_typelakefront,-0.03648984783975249,0.2509947829340988,0.884718156472856,-0.5284396223905862,0.45545992671108115,HC3 robust
+shoreline_perimeter,Shoreline-to-perimeter measure,controlled,OLS,105,7,site_typeriverfront,0.2790419166971392,0.19450417185965257,0.15467580708682652,-0.10218626014777987,0.6602700935420582,HC3 robust
+shoreline_perimeter,Shoreline-to-perimeter measure,controlled,OLS,105,7,z_log_site_area,0.7352703660087033,0.09239152780484312,3.68688021770586e-12,0.5541829715112108,0.9163577605061959,HC3 robust
+dtm_osm,DTM-OSM approachability proxy,controlled,SAR_lag,105,7,site_typecoastal waterfront without beach,-0.34284764060400935,0.24546887984255686,0.1625022647346972,-0.8239666450954208,0.13827136388740208,SAR model-based
+dtm_osm,DTM-OSM approachability proxy,controlled,SAR_lag,105,7,site_typelakefront,-0.2262518992439688,0.42361271653674365,0.5932717824946081,-1.0565328236559863,0.6040290251680487,SAR model-based
+dtm_osm,DTM-OSM approachability proxy,controlled,SAR_lag,105,7,site_typeriverfront,-1.004309317379285,0.28422166843866165,4.1003031056674466e-4,-1.5613837875190617,-0.4472348472395081,SAR model-based
+dtm_osm,DTM-OSM approachability proxy,controlled,SAR_lag,105,7,z_log_site_area,0.06229648088188682,0.09441611283822769,0.5093772235337615,-0.12275910028103945,0.2473520620448131,SAR model-based

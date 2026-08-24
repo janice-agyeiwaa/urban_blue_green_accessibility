@@ -17,3 +17,4 @@ run_script <- function(filename) {
 
 run_script("01_run_accessibility_models.R")
 run_script("02_make_accessibility_figures.R")
+run_script("05_run_haptic_sensitivity.R")

@@ -72,6 +72,13 @@ Rscript scripts/accessibility_analysis/run_all.R
 This uses 10 minutes for the main reported table and figures and evaluates 5,
 10, 20, and 30 minutes in the sensitivity analysis.
 
+The runner also executes `05_run_haptic_sensitivity.R`. That script compares
+the primary shoreline-to-perimeter haptic measure with the exploratory DTM-OSM
+unobstructed-approachability proxy. It uses the same 10-minute regression
+sample (N = 105), predictors, controls, seven-nearest-neighbour weights, and
+model-selection rule as the main analysis. The proxy does not replace the
+primary haptic component or alter the Paper 4 accessibility handoff.
+
 To switch the main reporting catchment without editing source code:
 
 ```powershell
@@ -131,9 +138,16 @@ pedestrian, transit, physical, visual, haptic, and multidimensional scores and
 is intended for manual ArcGIS map production. It is written under ignored
 `data/processed/accessibility_analysis/` and is not uploaded to GitHub.
 
+### `scripts/accessibility_analysis/05_run_haptic_sensitivity.R`
+
+This compares the primary shoreline-to-perimeter haptic measure with the
+exploratory DTM-OSM unobstructed-approachability proxy. It exports the
+measure-correlation figure, the controlled socioeconomic comparison, site
+controls, and model diagnostics for the 10-minute sample.
+
 ### `scripts/accessibility_analysis/run_all.R`
 
-This calls the model and figure scripts in order and forwards catchment and k
+This calls the model, figure, and haptic-sensitivity scripts in order and forwards catchment and k
 arguments as appropriate. The private Word document and manual ArcGIS map are
 deliberately kept outside this public analysis runner.
 
@@ -154,6 +168,10 @@ transit, viewshed, haptic, site-boundary, or site-type input changes.
 - `outputs/accessibility_analysis/tables/table4_controlled_catchment_sensitivity.csv`
 - `outputs/accessibility_analysis/tables/table6_10min_multiple_testing.csv`
 - `outputs/accessibility_analysis/tables/table7_10min_model_diagnostics.csv`
+- `outputs/accessibility_analysis/tables/table8_10min_haptic_sensitivity.csv`
+- `outputs/accessibility_analysis/tables/table8b_10min_haptic_model_diagnostics.csv`
+- `outputs/accessibility_analysis/tables/table8c_10min_haptic_sensitivity_site_controls.csv`
+- `outputs/accessibility_analysis/tables/tableS5_10min_haptic_measure_correlation.csv`
 - `outputs/accessibility_analysis/tables/table5b_10min_quadrant_summary.csv`
 - `outputs/accessibility_analysis/tables/tableS4_10min_quadrant_classifications.csv`
 - `outputs/accessibility_analysis/figures/figure2_10min_pairwise_accessibility.png`
@@ -161,6 +179,7 @@ transit, viewshed, haptic, site-boundary, or site-type input changes.
 - `outputs/accessibility_analysis/figures/figure3_10min_extreme_site_profiles.png`
 - `outputs/accessibility_analysis/figures/figure4_10min_accessibility_composition.png`
 - `outputs/accessibility_analysis/figures/figure5_10min_controlled_coefficients.png`
+- `outputs/accessibility_analysis/figures/figure6_10min_haptic_sensitivity.png`
 
 Detailed diagnostics, candidate comparisons, raw coefficients, and run
 metadata are written to ignored `artifacts/accessibility_analysis/` rather than the public

@@ -75,6 +75,27 @@ seawalls, or other barriers are absent. The DTM/OSM shoreline-approachability
 measure remains a potential sensitivity outcome, not a replacement used in the
 main regression.
 
+### Ten-minute haptic sensitivity
+
+The exploratory DTM-OSM score is the proportion of total shoreline classified
+as approachable (gentle DTM-derived slope or mapped beach/sand) and not affected
+by a mapped barrier or access restriction. It is compared with the primary
+shoreline-to-perimeter measure across all 114 sites. The regression comparison
+uses the canonical 10-minute sample (N = 105), the same standardized predictors
+and site controls, and the same common seven-nearest-neighbour model-selection
+procedure as the main analysis.
+
+The two measures were essentially uncorrelated (Pearson r = 0.028, p = .766;
+Spearman rho = 0.018, p = .846). In the controlled models, no socioeconomic
+predictor was significant for the primary measure. The alternate proxy selected
+a spatial-lag model; bachelor's-degree attainment had a negative association
+(beta = -0.402, p = .002, Benjamini-Hochberg q = .023). The low-income
+coefficient was positive before adjustment (beta = 0.243, p = .030) but did not
+survive adjustment (q = .152). These differences indicate that shoreline
+exposure and mapped shoreline approachability capture distinct properties.
+Because the proxy is not field-verified and depends on OSM feature completeness,
+it remains sensitivity evidence rather than a replacement outcome.
+
 ### Multidimensional access
 
 Physical, visual, and haptic scores are separately min-max scaled within each

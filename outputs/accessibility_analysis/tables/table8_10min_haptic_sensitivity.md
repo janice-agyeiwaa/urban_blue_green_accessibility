@@ -1,0 +1,11 @@
+# Ten-minute haptic sensitivity
+
+| Predictor | Shoreline-to-perimeter beta (SE) | Primary p | Primary BH q | DTM-OSM beta (SE) | Proxy p | Proxy BH q |
+| --- | --- | --- | --- | --- | --- | --- |
+| Principal accommodation expenditure | 0.020 (0.093) | 0.829 | 0.875 | 0.075 (0.109) | 0.494 | 0.841 |
+| Low-income residents (%) | 0.016 (0.079) | 0.840 | 0.875 | 0.243 (0.112) | 0.030 | 0.152 |
+| Bachelor's degree or higher (%) | 0.056 (0.120) | 0.644 | 0.875 | -0.402 (0.132) | 0.002 | 0.023 |
+| Visible-minority residents (%) | -0.081 (0.082) | 0.326 | 0.816 | -0.017 (0.110) | 0.875 | 0.875 |
+| Indigenous identity residents (%) | 0.070 (0.104) | 0.505 | 0.841 | -0.205 (0.107) | 0.054 | 0.181 |
+
+Note. N = 105. The shoreline-to-perimeter model is OLS with HC3 robust standard errors; the DTM-OSM model is a spatial-lag model. Both include waterfront type and standardized log land-buffer area. BH q-values are adjusted across the ten socioeconomic comparisons in this sensitivity table.

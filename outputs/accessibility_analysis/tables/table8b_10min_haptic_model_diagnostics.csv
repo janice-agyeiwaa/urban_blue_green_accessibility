@@ -1,0 +1,5 @@
+measure,measure_label,specification,family,N,k_neighbors,AIC,log_likelihood,residual_Moran_I,residual_Moran_p,fit_error
+shoreline_perimeter,Shoreline-to-perimeter measure,baseline,OLS,105,7,301.1618690185253,-143.58093450926265,0.009010486832498053,0.3920023522707358,NA
+shoreline_perimeter,Shoreline-to-perimeter measure,controlled,OLS,105,7,237.5903813954127,-107.79519069770635,-0.040382604663278025,0.8098335655925093,NA
+dtm_osm,DTM-OSM approachability proxy,baseline,SAR_lag,105,7,293.97214307483745,-138.98607153741872,0.006170392154417776,0.7379186956378637,NA
+dtm_osm,DTM-OSM approachability proxy,controlled,SAR_lag,105,7,287.16795731869286,-131.58397865934643,-0.001716117354503218,0.8668074172229239,NA
