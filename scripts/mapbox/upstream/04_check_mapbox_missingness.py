@@ -6,9 +6,7 @@
 from pathlib import Path
 import pandas as pd
 
-PROJECT_ROOT = Path(
-    r"C:\Users\owusu\Desktop\work\under_lab\urban_blue_green_accessibility"
-)
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
 
 INTERIM_DIR = PROJECT_ROOT / "data" / "interim" / "mapbox"
 

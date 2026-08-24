@@ -1,15 +1,11 @@
-# Paper 4 / Mapbox analysis — provisional
+# Paper 4 / Mapbox analysis — canonical
 
-This folder is intentionally retained for the separate Paper 4 cleanup. The
-obvious test scripts and stale generated outputs were archived during the
-Paper 3 cleanup, but the numbered analysis scripts have not yet been merged or
-declared canonical.
+Paper 4 now uses the validated Paper 3 10-minute accessibility handoff and a
+matching 10-minute population-density control. The canonical run order is
+implemented by `run_all.R` and documented in `docs/mapbox_workflow.md`.
 
-Do not present the existing Mapbox results as final. They were built from the
-superseded 20-minute Paper 3 accessibility handoff. The current handoff uses
-the 10-minute multidimensional score for all 114 sites, and the Mapbox outputs
-must be regenerated and audited against it.
-
-`00_validate_accessibility_handoff.py` is the boundary check between the papers. The
-remaining scripts should be reviewed in sequence during the Paper 4 phase,
-after which this status note can be replaced with a definitive run order.
+Final inference uses the spatially filtered RE-ESF models because the ordinary
+random-intercept models retained spatial pattern in their waterfront effects.
+The primary sample contains 98 waterfronts and 30,946 site-time observations.
+Existing outputs from the superseded 20-minute accessibility handoff are not
+part of the canonical workflow.

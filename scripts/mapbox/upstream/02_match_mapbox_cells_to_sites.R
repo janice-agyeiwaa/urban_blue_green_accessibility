@@ -23,10 +23,10 @@ library(readr)
 # Project paths
 # ------------------------------------------------------------
 
-project_root <- paste0(
-  "C:/Users/owusu/Desktop/work/under_lab/",
-  "urban_blue_green_accessibility"
-)
+script_arg <- grep("^--file=", commandArgs(trailingOnly = FALSE), value = TRUE)
+if (length(script_arg) != 1) stop("Could not determine this script's location.")
+script_path <- normalizePath(sub("^--file=", "", script_arg), winslash = "/")
+project_root <- normalizePath(file.path(dirname(script_path), "../../.."), winslash = "/")
 
 raw_dir <- file.path(
   project_root,
