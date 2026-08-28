@@ -1,322 +1,210 @@
+"""Run the documented park-by-park geodesic viewshed workflow.
+
+The script resumes from its output CSV. A water cell is counted once when it
+is visible from at least one observer; visibility is not summed across
+observers.
 """
-[UBS] Clean ArcGIS Census Enrich output
 
-This script takes the raw ArcGIS Enrich output and creates processed
-socio-demographic fields that match the Excel-style variables.
+from __future__ import annotations
 
-Input:
-data/interim/census/census_enrich_prep.gdb/walktime_5_10_20_30_census_enriched
-
-Outputs:
-data/processed/census/census_processed.gdb/ubs_census_by_walktime
-data/processed/census/ubs_census_by_walktime.csv
-"""
+import csv
+import time
+from pathlib import Path
 
 import arcpy
-from pathlib import Path
-import csv
+from arcpy.sa import Con, ExtractByMask, IsNull, Raster, Viewshed2
 
-
-# ------------------------------------------------------------
-# 1. Set paths
-# ------------------------------------------------------------
 
 PROJECT_ROOT = Path(__file__).resolve().parents[4]
+OBSERVER_GPKG = (
+    PROJECT_ROOT / "data" / "interim" / "viewshed"
+    / "observer_points_spacing_access_fallback.gpkg"
+)
+OBSERVER_LAYER = "observer_points_spacing_access_fallback"
+OBSERVER_FC = str(OBSERVER_GPKG / OBSERVER_LAYER)
+DSM = str(PROJECT_ROOT / "data" / "raw" / "dsm.tif")
+WATER = str(PROJECT_ROOT / "data" / "raw" / "LCC2020_wateronot.tif")
 
-INPUT_GDB = PROJECT_ROOT / "data" / "interim" / "census" / "census_enrich_prep.gdb"
-INPUT_FC = INPUT_GDB / "walktime_5_10_20_30_census_enriched"
+INTERIM_DIR = PROJECT_ROOT / "data" / "interim" / "viewshed"
+PROCESSED_DIR = PROJECT_ROOT / "data" / "processed" / "viewshed"
+INTERIM_DIR.mkdir(parents=True, exist_ok=True)
+PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
 
-OUT_FOLDER = PROJECT_ROOT / "data" / "processed" / "census"
-OUT_GDB = OUT_FOLDER / "census_processed.gdb"
-OUT_FC = OUT_GDB / "ubs_census_by_walktime"
+TEMP_GDB = INTERIM_DIR / "viewshed_temp.gdb"
+VISIBLE_GDB = (
+    INTERIM_DIR / "viewshed_visible_water_rasters_spacing_access_fallback.gdb"
+)
+OUTPUT_CSV = (
+    PROCESSED_DIR
+    / "allparks_viewshed_visible_water_area_spacing_access_fallback.csv"
+)
 
-OUT_CSV = OUT_FOLDER / "ubs_census_by_walktime.csv"
+OBSERVER_HEIGHT = "1.6 Meters"
+ANALYSIS_RADIUS = "1000 Meters"
+WATER_VALUE = 1
+OUTPUT_FIELDS = [
+    "park_num", "PARK_NAME", "MUNI", "observer_count",
+    "visible_water_cells", "visible_water_area_m2", "runtime_minutes",
+]
 
 
-# Keep QA fields while reviewing.
-# Later, change this to False and rerun to remove QA fields from the CSV.
-INCLUDE_QA_FIELDS = True
+def require(path: str, label: str) -> None:
+    if not arcpy.Exists(path):
+        raise FileNotFoundError(f"Missing {label}: {path}")
 
 
-# ------------------------------------------------------------
-# 2. Check input
-# ------------------------------------------------------------
+def create_gdb(path: Path) -> None:
+    if not arcpy.Exists(str(path)):
+        arcpy.management.CreateFileGDB(str(path.parent), path.name)
 
-print("Checking input:")
-print(INPUT_FC)
 
-if not arcpy.Exists(str(INPUT_FC)):
-    raise FileNotFoundError(
-        f"Input feature class not found:\n{INPUT_FC}\n"
-        "Run 02_run_arcgis_census_enrich.py first."
+def delete_if_exists(path: str) -> None:
+    if arcpy.Exists(path):
+        arcpy.management.Delete(path)
+
+
+def load_completed() -> dict[int, dict[str, str]]:
+    if not OUTPUT_CSV.exists():
+        return {}
+    with OUTPUT_CSV.open("r", newline="", encoding="utf-8-sig") as stream:
+        rows = list(csv.DictReader(stream))
+    completed = {}
+    for row in rows:
+        value = str(row.get("visible_water_area_m2", "")).strip()
+        if value not in {"", "None", "NA", "nan"}:
+            completed[int(float(row["park_num"]))] = row
+    return completed
+
+
+def write_results(rows: list[dict[str, object]]) -> None:
+    ordered = sorted(rows, key=lambda row: int(row["park_num"]))
+    with OUTPUT_CSV.open("w", newline="", encoding="utf-8-sig") as stream:
+        writer = csv.DictWriter(stream, fieldnames=OUTPUT_FIELDS)
+        writer.writeheader()
+        writer.writerows(ordered)
+
+
+def park_inventory() -> list[tuple[int, str]]:
+    parks: dict[int, str] = {}
+    with arcpy.da.SearchCursor(OBSERVER_FC, ["park_num", "PARK_NAME"]) as cursor:
+        for park_num, park_name in cursor:
+            parks[int(park_num)] = "" if park_name is None else str(park_name)
+    return sorted(parks.items())
+
+
+def raster_number(path: str, property_name: str) -> float:
+    return float(arcpy.management.GetRasterProperties(path, property_name)[0])
+
+
+def run_park(park_num: int, park_name: str) -> dict[str, object]:
+    started = time.perf_counter()
+    observer_layer = f"observers_{park_num}"
+    arcpy.management.MakeFeatureLayer(
+        OBSERVER_FC, observer_layer, f"park_num = {park_num}"
+    )
+    observer_count = int(arcpy.management.GetCount(observer_layer)[0])
+    if observer_count == 0:
+        raise ValueError(f"Park {park_num} has no observer points.")
+
+    park_buffer = str(TEMP_GDB / f"buffer_{park_num}")
+    dsm_clip = str(TEMP_GDB / f"dsm_clip_{park_num}")
+    dsm_filled = str(TEMP_GDB / f"dsm_filled_{park_num}")
+    water_clip = str(TEMP_GDB / f"water_clip_{park_num}")
+    viewshed_path = str(TEMP_GDB / f"viewshed_{park_num}")
+    visible_path = str(VISIBLE_GDB / f"visible_water_park_{park_num}")
+
+    for item in (
+        park_buffer, dsm_clip, dsm_filled, water_clip, viewshed_path,
+        visible_path,
+    ):
+        delete_if_exists(item)
+
+    arcpy.analysis.Buffer(
+        observer_layer, park_buffer, ANALYSIS_RADIUS, dissolve_option="ALL"
     )
 
-input_count = int(arcpy.management.GetCount(str(INPUT_FC))[0])
-print(f"Input records: {input_count}")
+    with arcpy.EnvManager(
+        mask=park_buffer,
+        extent=park_buffer,
+        snapRaster=DSM,
+        cellSize=DSM,
+        outputCoordinateSystem=DSM,
+    ):
+        ExtractByMask(DSM, park_buffer).save(dsm_clip)
+        Con(IsNull(Raster(dsm_clip)), -1, Raster(dsm_clip)).save(dsm_filled)
+        ExtractByMask(WATER, park_buffer).save(water_clip)
 
-if input_count != 456:
-    print("WARNING: Expected 456 records for 114 sites x 4 walk times.")
-
-
-# ------------------------------------------------------------
-# 3. Create processed Census folder and geodatabase
-# ------------------------------------------------------------
-
-OUT_FOLDER.mkdir(parents=True, exist_ok=True)
-
-if not arcpy.Exists(str(OUT_GDB)):
-    arcpy.management.CreateFileGDB(str(OUT_FOLDER), OUT_GDB.name)
-    print(f"Created geodatabase: {OUT_GDB}")
-else:
-    print(f"Geodatabase already exists: {OUT_GDB}")
-
-
-# ------------------------------------------------------------
-# 4. Copy raw enriched layer to processed output
-# ------------------------------------------------------------
-
-if arcpy.Exists(str(OUT_FC)):
-    arcpy.management.Delete(str(OUT_FC))
-    print("Deleted old processed output.")
-
-arcpy.management.CopyFeatures(str(INPUT_FC), str(OUT_FC))
-
-print("\nCopied enriched layer to:")
-print(OUT_FC)
-
-
-# ------------------------------------------------------------
-# 5. Add processed Census fields
-# ------------------------------------------------------------
-
-CLEAN_FIELDS = [
-    ("household_median_income", "DOUBLE"),
-    ("shelter_expenditures", "DOUBLE"),
-    ("shelter_expenditures_principal", "DOUBLE"),
-    ("shelter_total_expenditures_rent", "DOUBLE"),
-    ("pct_low_income", "DOUBLE"),
-    ("pct_no_college", "DOUBLE"),
-    ("pct_bachelors_and_above", "DOUBLE"),
-    ("pct_visible_minority", "DOUBLE"),
-    ("pct_indigenous_identity", "DOUBLE"),
-]
-
-existing_fields = [field.name for field in arcpy.ListFields(str(OUT_FC))]
-
-for field_name, field_type in CLEAN_FIELDS:
-    if field_name not in existing_fields:
-        arcpy.management.AddField(str(OUT_FC), field_name, field_type)
-        print(f"Added field: {field_name}")
-
-
-# ------------------------------------------------------------
-# 6. Calculate processed Census fields
-# ------------------------------------------------------------
-
-LOW_INCOME_FIELDS = [
-    "HouseholdIncAfterTaxCensusYear_A21HAT_5_P",
-    "HouseholdIncAfterTaxCensusYear_A21HAT0510_P",
-    "HouseholdIncAfterTaxCensusYear_A21HAT1015_P",
-    "HouseholdIncAfterTaxCensusYear_A21HAT1520_P",
-    "HouseholdIncAfterTaxCensusYear_A21HAT2025_P",
-    "HouseholdIncAfterTaxCensusYear_A21HAT2530_P",
-    "HouseholdIncAfterTaxCensusYear_A21HAT3035_P",
-    "HouseholdIncAfterTaxCensusYear_A21HAT3540_P",
-]
-
-UPDATE_FIELDS = [
-    # Raw direct fields
-    "HouseholdIncomeConstantYear_EHYHRIMED",
-    "Shelter_HSSH001_A",
-    "Shelter_HSSH002_A",
-    "Shelter_HSSH004_A",
-
-    # Low-income bracket fields
-    *LOW_INCOME_FIELDS,
-
-    # Education fields
-    "EducationalAttainment_EHYEDUNCDD_P",
-    "EducationalAttainment_EHYEDUHSCE_P",
-    "EducationalAttainment_EHYEDUUDBP_P",
-    "EducationalAttainment_EHYEDUUDBD_P",
-
-    # Identity fields
-    "VisibleMinorityStatus_EHYVISVM_P",
-    "IndigenousIdentity_A21AIDABOR_P",
-
-    # Processed output fields
-    "household_median_income",
-    "shelter_expenditures",
-    "shelter_expenditures_principal",
-    "shelter_total_expenditures_rent",
-    "pct_low_income",
-    "pct_no_college",
-    "pct_bachelors_and_above",
-    "pct_visible_minority",
-    "pct_indigenous_identity",
-]
-
-
-# Check that all needed fields exist before calculating
-available_fields = [field.name for field in arcpy.ListFields(str(OUT_FC))]
-missing_fields = [field for field in UPDATE_FIELDS if field not in available_fields]
-
-if missing_fields:
-    print("\nERROR: These fields are missing:")
-    for field in missing_fields:
-        print("-", field)
-    raise ValueError("Missing required fields. Check the Enrich output.")
-else:
-    print("\nGood: all required fields exist.")
-
-
-def safe_sum(values):
-    """Sum values while ignoring None values."""
-    valid_values = [value for value in values if value is not None]
-
-    if not valid_values:
-        return None
-
-    return sum(valid_values)
-
-
-with arcpy.da.UpdateCursor(str(OUT_FC), UPDATE_FIELDS) as cursor:
-    field_index = {field: i for i, field in enumerate(cursor.fields)}
-
-    for row in cursor:
-        # Direct fields
-        row[field_index["household_median_income"]] = row[
-            field_index["HouseholdIncomeConstantYear_EHYHRIMED"]
-        ]
-
-        row[field_index["shelter_expenditures"]] = row[
-            field_index["Shelter_HSSH001_A"]
-        ]
-
-        row[field_index["shelter_expenditures_principal"]] = row[
-            field_index["Shelter_HSSH002_A"]
-        ]
-
-        row[field_index["shelter_total_expenditures_rent"]] = row[
-            field_index["Shelter_HSSH004_A"]
-        ]
-
-        # Combined low-income field
-        low_income_values = [
-            row[field_index[field_name]] for field_name in LOW_INCOME_FIELDS
-        ]
-
-        row[field_index["pct_low_income"]] = safe_sum(low_income_values)
-
-        # Combined education fields
-        no_certificate = row[field_index["EducationalAttainment_EHYEDUNCDD_P"]]
-        high_school = row[field_index["EducationalAttainment_EHYEDUHSCE_P"]]
-        bachelors = row[field_index["EducationalAttainment_EHYEDUUDBP_P"]]
-        above_bachelors = row[field_index["EducationalAttainment_EHYEDUUDBD_P"]]
-
-        row[field_index["pct_no_college"]] = safe_sum(
-            [no_certificate, high_school]
+        viewshed = Viewshed2(
+            dsm_filled,
+            observer_layer,
+            analysis_type="FREQUENCY",
+            observer_offset=OBSERVER_HEIGHT,
+            outer_radius=ANALYSIS_RADIUS,
+            outer_radius_is_3d="GROUND",
+            analysis_method="ALL_SIGHTLINES",
+            analysis_target_device="GPU_THEN_CPU",
         )
+        viewshed.save(viewshed_path)
+        Con(
+            (Raster(viewshed_path) > 0) & (Raster(water_clip) == WATER_VALUE),
+            1,
+        ).save(visible_path)
 
-        row[field_index["pct_bachelors_and_above"]] = safe_sum(
-            [bachelors, above_bachelors]
-        )
+    visible_cells = raster_number(visible_path, "SUM")
+    cell_width = raster_number(visible_path, "CELLSIZEX")
+    cell_height = raster_number(visible_path, "CELLSIZEY")
+    visible_area = visible_cells * abs(cell_width * cell_height)
 
-        # Direct identity fields
-        row[field_index["pct_visible_minority"]] = row[
-            field_index["VisibleMinorityStatus_EHYVISVM_P"]
-        ]
+    for item in (park_buffer, dsm_clip, dsm_filled, water_clip, viewshed_path):
+        delete_if_exists(item)
+    arcpy.management.Delete(observer_layer)
 
-        row[field_index["pct_indigenous_identity"]] = row[
-            field_index["IndigenousIdentity_A21AIDABOR_P"]
-        ]
-
-        cursor.updateRow(row)
-
-print("\nProcessed Census fields calculated.")
-
-
-# ------------------------------------------------------------
-# 7. Export one processed CSV
-# ------------------------------------------------------------
-
-BASE_CSV_FIELD_MAP = [
-    ("park_num", "park_num"),
-    ("PARK_NAME", "PARK_NAME"),
-    ("MUNI", "MUNI"),
-    ("walktime_min", "walktime_min"),
-    ("distance_m", "distance_m"),
-    ("access_point_count", "access_point_count"),
-
-    ("household_median_income", "household-median-income"),
-    ("shelter_expenditures", "shelter-expenditures"),
-    ("shelter_expenditures_principal", "shelter-expenditures-principal"),
-    ("shelter_total_expenditures_rent", "shelter-total-expenditures-rent"),
-    ("pct_low_income", "pct-low-income"),
-    ("pct_no_college", "pct-no-college"),
-    ("pct_bachelors_and_above", "pct-bachelors-and-above"),
-    ("pct_visible_minority", "pct-visible-minority"),
-    ("pct_indigenous_identity", "pct-indigenous-identity"),
-]
-
-QA_FIELD_MAP = [
-    ("HasData", "HasData"),
-    ("apportionmentConfidence", "apportionmentConfidence"),
-    ("populationToPolygonSizeRating", "populationToPolygonSizeRating"),
-]
-
-if INCLUDE_QA_FIELDS:
-    CSV_FIELD_MAP = BASE_CSV_FIELD_MAP + QA_FIELD_MAP
-else:
-    CSV_FIELD_MAP = BASE_CSV_FIELD_MAP
+    return {
+        "park_num": park_num,
+        "PARK_NAME": park_name,
+        "MUNI": "",
+        "observer_count": observer_count,
+        "visible_water_cells": round(visible_cells),
+        "visible_water_area_m2": round(visible_area, 2),
+        "runtime_minutes": round((time.perf_counter() - started) / 60, 2),
+    }
 
 
-def export_processed_csv(output_csv):
-    """Export selected processed Census fields to one CSV."""
+def main() -> None:
+    require(OBSERVER_FC, "observer-point layer")
+    require(DSM, "DSM")
+    require(WATER, "binary water raster")
+    create_gdb(TEMP_GDB)
+    create_gdb(VISIBLE_GDB)
 
-    field_names = [item[0] for item in CSV_FIELD_MAP]
-    csv_headers = [item[1] for item in CSV_FIELD_MAP]
+    arcpy.env.overwriteOutput = True
+    arcpy.env.scratchWorkspace = str(TEMP_GDB)
+    arcpy.CheckOutExtension("Spatial")
 
-    with open(output_csv, "w", newline="", encoding="utf-8") as csv_file:
-        writer = csv.writer(csv_file)
-        writer.writerow(csv_headers)
+    completed = load_completed()
+    results: list[dict[str, object]] = list(completed.values())
+    parks = park_inventory()
+    print(f"Observer parks: {len(parks)}")
+    print(f"Already completed: {len(completed)}")
 
-        with arcpy.da.SearchCursor(str(OUT_FC), field_names) as cursor:
-            for row in cursor:
-                writer.writerow(row)
+    try:
+        for index, (park_num, park_name) in enumerate(parks, start=1):
+            if park_num in completed:
+                print(f"[{index}/{len(parks)}] Skipping completed park {park_num}")
+                continue
+            print(f"[{index}/{len(parks)}] Running park {park_num}: {park_name}")
+            result = run_park(park_num, park_name)
+            results.append(result)
+            write_results(results)
+            print(
+                "  visible water area:",
+                f"{result['visible_water_area_m2']:,.2f} m2",
+            )
+    finally:
+        arcpy.CheckInExtension("Spatial")
 
-    print(f"\nExported processed Census CSV:")
-    print(output_csv)
-
-
-# Delete older extra CSVs from the previous version if they exist
-old_csvs = [
-    OUT_FOLDER / "walktime_5_10_20_30_census_cleaned.csv",
-    OUT_FOLDER / "05min_census_cleaned.csv",
-    OUT_FOLDER / "10min_census_cleaned.csv",
-    OUT_FOLDER / "20min_census_cleaned.csv",
-    OUT_FOLDER / "30min_census_cleaned.csv",
-]
-
-for old_csv in old_csvs:
-    if old_csv.exists():
-        old_csv.unlink()
-        print(f"Deleted old CSV: {old_csv}")
-
-
-export_processed_csv(OUT_CSV)
+    print(f"Completed results: {OUTPUT_CSV}")
 
 
-# ------------------------------------------------------------
-# 8. Final check
-# ------------------------------------------------------------
-
-out_count = int(arcpy.management.GetCount(str(OUT_FC))[0])
-
-print("\nFinal processed feature class records:")
-print(out_count)
-
-if out_count == 456:
-    print("\nDone. Census output is ready.")
-else:
-    print("\nWARNING: Output does not have 456 records.")
+if __name__ == "__main__":
+    main()

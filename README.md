@@ -72,9 +72,11 @@ urban_blue_green_accessibility/
     mapbox/                       # Paper 4
 ```
 
-The entire `data/` folder is local-only and excluded from Git. Reproducibility
-diagnostics are written to ignored `artifacts/`; private Word deliverables are
-written to ignored `deliverables/`. Only scripts, documentation, and the
-presentation-ready tables and PNG figures under `outputs/` are intended for
+The entire `data/` folder is local-only and excluded from Git. The private-data
+handoff and the boundary between end-to-end and analytical reproducibility are
+documented in `docs/data_reproducibility.md`. Reproducibility diagnostics are
+written to ignored `artifacts/`; private Word deliverables are written to
+ignored `deliverables/`. Only scripts, documentation, and the presentation-ready
+tables and PNG figures under `outputs/` are intended for
 GitHub. Paper 3 maps are prepared manually in ArcGIS and inserted into the
 private Word draft; no generated map is committed.

@@ -19,15 +19,17 @@ DTM = PROJECT_ROOT / "data" / "raw" / "dtm.tif"
 INTERIM_DIR = PROJECT_ROOT / "data" / "interim" / "haptic"
 INTERIM_DIR.mkdir(parents=True, exist_ok=True)
 
-SLOPE_GDB = INTERIM_DIR / "haptic_slope_rasters.gdb"
+SCRATCH_GDB = INTERIM_DIR / "haptic_slope_scratch.gdb"
 
-if not arcpy.Exists(str(SLOPE_GDB)):
+if not arcpy.Exists(str(SCRATCH_GDB)):
     arcpy.management.CreateFileGDB(
         out_folder_path=str(INTERIM_DIR),
-        out_name="haptic_slope_rasters.gdb"
+        out_name="haptic_slope_scratch.gdb"
     )
 
-SLOPE_RASTER = str(SLOPE_GDB / "dtm_slope_degrees")
+# Step 02 consumes this TIFF directly. Keeping one canonical path prevents the
+# slope generator and terrain-proxy script from silently using different files.
+SLOPE_RASTER = str(INTERIM_DIR / "dtm_slope_degrees.tif")
 
 
 # ============================================================
@@ -35,8 +37,8 @@ SLOPE_RASTER = str(SLOPE_GDB / "dtm_slope_degrees")
 # ============================================================
 
 arcpy.env.overwriteOutput = True
-arcpy.env.workspace = str(SLOPE_GDB)
-arcpy.env.scratchWorkspace = str(SLOPE_GDB)
+arcpy.env.workspace = str(SCRATCH_GDB)
+arcpy.env.scratchWorkspace = str(SCRATCH_GDB)
 
 arcpy.CheckOutExtension("Spatial")
 
