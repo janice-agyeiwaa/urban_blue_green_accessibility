@@ -29,6 +29,13 @@ Rscript scripts/accessibility_analysis/run_all.R
 - `tableS4_10min_quadrant_classifications.csv`: site-level quadrant assignments
 - `tableS5_10min_haptic_measure_correlation.csv`
 
+Additional Word-ready tables with readable labels, combined estimates and
+standard errors, and formatted p-values:
+
+- `table3_10min_site_controls_formatted.csv`
+- `table4_controlled_catchment_sensitivity_formatted.csv`
+- `table7_10min_model_diagnostics_formatted.csv`
+
 ## Figures
 
 - `figures/figure2_10min_pairwise_accessibility.png`: single-colour pairwise

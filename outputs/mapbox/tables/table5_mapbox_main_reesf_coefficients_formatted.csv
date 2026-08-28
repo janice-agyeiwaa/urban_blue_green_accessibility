@@ -1,0 +1,53 @@
+Model,Predictor,beta (SE),95% CI,p
+Physical,Intercept,-3.616 (0.152),"-3.913, -3.319",<.001
+Physical,Physical accessibility,0.495 (0.107),"0.285, 0.705",<.001
+Physical,Weekend (vs weekday),0.214 (0.008),"0.198, 0.230",<.001
+Physical,Afternoon (vs morning),0.349 (0.010),"0.331, 0.368",<.001
+Physical,Evening (vs morning),-0.072 (0.010),"-0.092, -0.051",<.001
+Physical,Fall (vs winter),0.365 (0.012),"0.342, 0.387",<.001
+Physical,Spring (vs winter),0.403 (0.012),"0.380, 0.425",<.001
+Physical,Summer (vs winter),0.543 (0.012),"0.520, 0.565",<.001
+Physical,Beach (vs riverfront),0.023 (0.258),"-0.482, 0.527",.930
+Physical,Coastal waterfront without beach (vs riverfront),0.360 (0.269),"-0.168, 0.888",.182
+Physical,Lakefront (vs riverfront),-0.253 (0.335),"-0.910, 0.403",.450
+Physical,Log site area,0.223 (0.084),"0.057, 0.388",.008
+Physical,Log 10-minute population density,0.227 (0.113),"0.005, 0.449",.045
+Visual,Intercept,-3.869 (0.180),"-4.222, -3.516",<.001
+Visual,Visual accessibility,-0.173 (0.107),"-0.384, 0.037",.106
+Visual,Weekend (vs weekday),0.214 (0.008),"0.198, 0.230",<.001
+Visual,Afternoon (vs morning),0.349 (0.010),"0.331, 0.368",<.001
+Visual,Evening (vs morning),-0.072 (0.010),"-0.092, -0.051",<.001
+Visual,Fall (vs winter),0.365 (0.012),"0.342, 0.387",<.001
+Visual,Spring (vs winter),0.403 (0.012),"0.380, 0.425",<.001
+Visual,Summer (vs winter),0.543 (0.012),"0.520, 0.566",<.001
+Visual,Beach (vs riverfront),0.468 (0.314),"-0.148, 1.083",.136
+Visual,Coastal waterfront without beach (vs riverfront),0.802 (0.287),"0.240, 1.363",.005
+Visual,Lakefront (vs riverfront),0.164 (0.383),"-0.586, 0.914",.668
+Visual,Log site area,0.302 (0.104),"0.098, 0.505",.004
+Visual,Log 10-minute population density,0.512 (0.106),"0.304, 0.720",<.001
+Haptic,Intercept,-3.724 (0.160),"-4.039, -3.410",<.001
+Haptic,Haptic accessibility,-0.248 (0.101),"-0.447, -0.050",.014
+Haptic,Weekend (vs weekday),0.214 (0.008),"0.198, 0.230",<.001
+Haptic,Afternoon (vs morning),0.349 (0.010),"0.331, 0.368",<.001
+Haptic,Evening (vs morning),-0.072 (0.010),"-0.092, -0.051",<.001
+Haptic,Fall (vs winter),0.365 (0.012),"0.342, 0.387",<.001
+Haptic,Spring (vs winter),0.403 (0.012),"0.380, 0.425",<.001
+Haptic,Summer (vs winter),0.543 (0.012),"0.520, 0.566",<.001
+Haptic,Beach (vs riverfront),0.215 (0.273),"-0.320, 0.749",.431
+Haptic,Coastal waterfront without beach (vs riverfront),0.606 (0.282),"0.053, 1.158",.032
+Haptic,Lakefront (vs riverfront),-0.132 (0.362),"-0.841, 0.578",.716
+Haptic,Log site area,0.448 (0.129),"0.196, 0.700",<.001
+Haptic,Log 10-minute population density,0.488 (0.105),"0.282, 0.694",<.001
+Multidimensional,Intercept,-3.761 (0.180),"-4.114, -3.409",<.001
+Multidimensional,Multidimensional accessibility,-0.025 (0.113),"-0.246, 0.195",.821
+Multidimensional,Weekend (vs weekday),0.214 (0.008),"0.198, 0.230",<.001
+Multidimensional,Afternoon (vs morning),0.349 (0.010),"0.331, 0.368",<.001
+Multidimensional,Evening (vs morning),-0.072 (0.010),"-0.092, -0.051",<.001
+Multidimensional,Fall (vs winter),0.365 (0.012),"0.342, 0.387",<.001
+Multidimensional,Spring (vs winter),0.403 (0.012),"0.380, 0.425",<.001
+Multidimensional,Summer (vs winter),0.543 (0.012),"0.520, 0.566",<.001
+Multidimensional,Beach (vs riverfront),0.232 (0.309),"-0.373, 0.837",.452
+Multidimensional,Coastal waterfront without beach (vs riverfront),0.687 (0.295),"0.109, 1.266",.020
+Multidimensional,Lakefront (vs riverfront),-0.012 (0.378),"-0.753, 0.729",.975
+Multidimensional,Log site area,0.244 (0.120),"0.009, 0.480",.042
+Multidimensional,Log 10-minute population density,0.508 (0.111),"0.290, 0.725",<.001

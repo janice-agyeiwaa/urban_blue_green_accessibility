@@ -1,0 +1,25 @@
+Outcome,Model,Control variable,beta (SE),p
+Pedestrian,SAR lag,Coastal waterfront without beach,0.399 (0.229),.082
+Pedestrian,SAR lag,Lakefront,0.023 (0.393),.954
+Pedestrian,SAR lag,Riverfront,-0.155 (0.263),.556
+Pedestrian,SAR lag,Log land-buffer area,-0.273 (0.088),.002
+Transit,SAR error,Coastal waterfront without beach,0.294 (0.231),.203
+Transit,SAR error,Lakefront,0.276 (0.386),.475
+Transit,SAR error,Riverfront,-0.052 (0.263),.842
+Transit,SAR error,Log land-buffer area,0.283 (0.089),.001
+Physical,SAR error,Coastal waterfront without beach,0.357 (0.225),.113
+Physical,SAR error,Lakefront,0.186 (0.376),.620
+Physical,SAR error,Riverfront,-0.173 (0.257),.500
+Physical,SAR error,Log land-buffer area,0.078 (0.087),.366
+Visual,SAR lag,Coastal waterfront without beach,-0.500 (0.214),.020
+Visual,SAR lag,Lakefront,-0.179 (0.370),.628
+Visual,SAR lag,Riverfront,-1.218 (0.248),<.001
+Visual,SAR lag,Log land-buffer area,0.362 (0.083),<.001
+Haptic,OLS,Coastal waterfront without beach,0.157 (0.207),.451
+Haptic,OLS,Lakefront,-0.036 (0.251),.885
+Haptic,OLS,Riverfront,0.279 (0.195),.155
+Haptic,OLS,Log land-buffer area,0.735 (0.092),<.001
+Multidimensional,SAR error,Coastal waterfront without beach,-0.008 (0.202),.970
+Multidimensional,SAR error,Lakefront,-0.028 (0.340),.934
+Multidimensional,SAR error,Riverfront,-0.737 (0.230),.001
+Multidimensional,SAR error,Log land-buffer area,0.584 (0.077),<.001

@@ -760,6 +760,26 @@ significance_stars <- function(p) {
   )
 }
 
+format_report_p <- function(p) {
+  ifelse(p < 0.001, "<.001", sub("^0", "", sprintf("%.3f", p)))
+}
+
+site_controls_formatted <- main_controls %>%
+  transmute(
+    Outcome = str_to_title(outcome),
+    Model = str_replace_all(family, "_", " "),
+    `Control variable` = str_remove(term_label, " \\(vs beach\\)$"),
+    `beta (SE)` = sprintf("%.3f (%.3f)", estimate, std_error),
+    p = format_report_p(p_value)
+  )
+write_csv(
+  site_controls_formatted,
+  file.path(
+    table_dir,
+    paste0("table3_", main_catchment, "min_site_controls_formatted.csv")
+  )
+)
+
 report_half <- main_coefficients %>%
   filter(outcome %in% report_outcomes) %>%
   mutate(
@@ -873,6 +893,43 @@ sensitivity_key <- coefficients %>%
 write_csv(
   sensitivity_key,
   file.path(table_dir, "table4_controlled_catchment_sensitivity.csv")
+)
+
+sensitivity_key_formatted <- sensitivity_key %>%
+  transmute(
+    Catchment = paste0(catchment_min, " minutes"),
+    Outcome = str_to_title(outcome),
+    Model = str_replace_all(family, "_", " "),
+    Predictor = term_label,
+    `beta (SE)` = sprintf("%.3f (%.3f)", estimate, std_error),
+    p = format_report_p(p_value)
+  )
+write_csv(
+  sensitivity_key_formatted,
+  file.path(table_dir, "table4_controlled_catchment_sensitivity_formatted.csv")
+)
+
+model_diagnostics_formatted <- main_diagnostics %>%
+  transmute(
+    Outcome = str_to_title(outcome),
+    Specification = str_to_title(specification),
+    Model = str_replace_all(family, "_", " "),
+    `Spatial parameter estimate (p)` = case_when(
+      is.na(spatial_parameter) ~ "--",
+      TRUE ~ paste0(
+        ifelse(spatial_parameter == "rho", "rho", "lambda"), " = ",
+        sprintf("%.3f", spatial_estimate), " (", format_report_p(spatial_p), ")"
+      )
+    ),
+    `Residual Moran I` = sprintf("%.3f", residual_Moran_I),
+    p = format_report_p(residual_Moran_p)
+  )
+write_csv(
+  model_diagnostics_formatted,
+  file.path(
+    table_dir,
+    paste0("table7_", main_catchment, "min_model_diagnostics_formatted.csv")
+  )
 )
 
 metadata_lines <- c(

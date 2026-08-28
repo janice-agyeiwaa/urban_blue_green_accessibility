@@ -1,0 +1,13 @@
+Specification,Accessibility measure,Sites,Observations,Difference in activity (95% CI),p,BH q,Residual Moran p
+At least 90% coverage,Physical,76,27013,"+57.0% (+28.9%, +91.3%)",<.001,<.001,.525
+At least 90% coverage,Visual,76,27013,"-20.1% (-35.6%, -1.0%)",.040,.054,.545
+At least 90% coverage,Haptic,76,27013,"-21.4% (-35.4%, -4.4%)",.016,.032,.402
+At least 90% coverage,Multidimensional,76,27013,"-5.0% (-24.5%, +19.4%)",.658,.658,.332
+20-minute population density,Physical,103,32472,"+71.2% (+42.7%, +105.3%)",<.001,<.001,.753
+20-minute population density,Visual,103,32472,"-12.8% (-28.9%, +7.1%)",.191,.255,.378
+20-minute population density,Haptic,103,32472,"-23.3% (-36.9%, -6.7%)",.008,.016,.683
+20-minute population density,Multidimensional,103,32472,"+5.9% (-14.0%, +30.5%)",.589,.589,.702
+Without site type,Physical,98,30946,"+67.7% (+36.8%, +105.6%)",<.001,<.001,.588
+Without site type,Visual,98,30946,"-12.4% (-27.0%, +5.1%)",.154,.205,.664
+Without site type,Haptic,98,30946,"-22.9% (-36.6%, -6.1%)",.010,.019,.327
+Without site type,Multidimensional,98,30946,"-1.6% (-19.6%, +20.3%)",.872,.872,.523

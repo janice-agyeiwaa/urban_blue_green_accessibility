@@ -125,7 +125,7 @@ Replace the sensitivity-analysis paragraph with:
 - Temporal table: `outputs/mapbox/tables/table3_mapbox_temporal_activity.csv`
 - Main accessibility results: `outputs/mapbox/tables/table4_mapbox_spatially_filtered_effects.csv`
 - Full controlled results: `outputs/mapbox/tables/table5_mapbox_main_reesf_coefficients.csv`
-- Spatial diagnostics: `outputs/mapbox/tables/table5_mapbox_spatial_diagnostics.csv`
+- Spatial diagnostics: `outputs/mapbox/tables/tableB1_mapbox_spatial_diagnostics.csv`
 - Sensitivity results: `outputs/mapbox/tables/table6_mapbox_spatial_sensitivity_effects.csv`
 - Main coefficient figure: `outputs/mapbox/figures/figure1_mapbox_main_accessibility_effects.png`
 - Sensitivity figure: `outputs/mapbox/figures/figure2_mapbox_sensitivity_effects.png`

@@ -13,10 +13,18 @@ Rscript scripts/mapbox/run_all.R
 - `tables/table3_mapbox_temporal_activity.csv`
 - `tables/table4_mapbox_spatially_filtered_effects.csv`
 - `tables/table5_mapbox_main_reesf_coefficients.csv`
-- `tables/table5_mapbox_spatial_diagnostics.csv`
+- `tables/tableB1_mapbox_spatial_diagnostics.csv`
 - `tables/table6_mapbox_spatial_sensitivity_effects.csv`
 - `tables/tableS1_mapbox_spatial_sensitivity_diagnostics.csv`
 - `tables/tableS2_mapbox_site_type_counts.csv`
+
+Word-ready versions with combined estimates, intervals, and formatted p-values:
+
+- `tables/table4_mapbox_spatially_filtered_effects_formatted.csv`
+- `tables/tableB1_mapbox_spatial_diagnostics_formatted.csv`
+- `tables/table5_mapbox_main_reesf_coefficients_formatted.csv`
+- `tables/table6a_mapbox_logged_sensitivity_formatted.csv`
+- `tables/table6b_mapbox_raw_outcome_sensitivity_formatted.csv`
 
 Ordinary mixed-model diagnostics documenting why spatial filtering was required
 are retained under the ignored `artifacts/mapbox/` directory. Final inference
@@ -27,6 +35,9 @@ uses Tables 4-6.
 - `figures/figure1_mapbox_main_accessibility_effects.png`
 - `figures/figure2_mapbox_sensitivity_effects.png`
 - `figures/figure3_mapbox_temporal_activity.png`
+- `figures/figure4_mapbox_analysis_workflow.png`: corrected Paper 4 methods
+  workflow using the primary 10-minute population specification and current
+  analytical samples
 
 Detailed model objects, full diagnostic residuals, and intermediate
 coefficients are written to the ignored `artifacts/mapbox/` directory.

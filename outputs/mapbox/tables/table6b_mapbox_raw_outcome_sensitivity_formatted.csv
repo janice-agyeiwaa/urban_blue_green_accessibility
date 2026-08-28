@@ -1,0 +1,5 @@
+Accessibility measure,Sites,Observations,Raw-scale coefficient (95% CI),p,BH q,Residual Moran p
+Physical,98,30946,"0.060 (0.026, 0.095)",<.001,.001,.022
+Visual,98,30946,"-0.054 (-0.086, -0.022)",<.001,.001,.191
+Haptic,98,30946,"-0.064 (-0.094, -0.035)",<.001,<.001,.161
+Multidimensional,98,30946,"-0.043 (-0.077, -0.009)",.013,.013,.197

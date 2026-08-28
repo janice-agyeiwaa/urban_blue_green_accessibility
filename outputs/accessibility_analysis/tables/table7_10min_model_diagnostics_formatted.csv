@@ -1,0 +1,13 @@
+Outcome,Specification,Model,Spatial parameter estimate (p),Residual Moran I,p
+Pedestrian,Baseline,SAR lag,rho = 0.353 (.007),0.004,.772
+Pedestrian,Controlled,SAR lag,rho = 0.311 (.017),-0.025,.745
+Transit,Baseline,SAR error,lambda = 0.358 (.012),0.003,.788
+Transit,Controlled,SAR error,lambda = 0.417 (.002),0.009,.691
+Physical,Baseline,SAR error,lambda = 0.484 (<.001),0.002,.806
+Physical,Controlled,SAR error,lambda = 0.439 (<.001),0.005,.758
+Visual,Baseline,SAR lag,rho = 0.401 (.002),0.008,.708
+Visual,Controlled,SAR lag,rho = 0.376 (.003),-0.011,.983
+Haptic,Baseline,OLS,--,0.009,.392
+Haptic,Controlled,OLS,--,-0.040,.810
+Multidimensional,Baseline,OLS,--,0.033,.155
+Multidimensional,Controlled,SAR error,lambda = 0.289 (.060),0.001,.818

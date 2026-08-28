@@ -1,0 +1,5 @@
+Accessibility measure,beta (SE),p,BH q,Estimated difference in activity (95% CI)
+Physical,0.495 (0.107),<.001,<.001,"+64.0% (+32.9%, +102.4%)"
+Visual,-0.173 (0.107),.106,.141,"-15.9% (-31.9%, +3.8%)"
+Haptic,-0.248 (0.101),.014,.029,"-22.0% (-36.0%, -4.8%)"
+Multidimensional,-0.025 (0.113),.821,.821,"-2.5% (-21.8%, +21.6%)"

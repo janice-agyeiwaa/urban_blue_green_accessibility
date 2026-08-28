@@ -219,7 +219,7 @@ write_csv(
 )
 write_csv(
   diagnostics,
-  file.path(table_dir, "table5_mapbox_spatial_diagnostics.csv")
+  file.path(table_dir, "tableB1_mapbox_spatial_diagnostics.csv")
 )
 write_csv(coefficients, file.path(artifact_dir, "mapbox_reesf_all_coefficients.csv"))
 write_csv(park_residuals, file.path(artifact_dir, "mapbox_reesf_park_residuals.csv"))
